@@ -1,0 +1,20 @@
+﻿@model DoctorForums.Models.Room
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>@Model.Title</h2>
+
+<div>
+@foreach (var thread in Model.Topics)
+{
+    <div>
+        @thread.Title
+    </div>
+}
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
