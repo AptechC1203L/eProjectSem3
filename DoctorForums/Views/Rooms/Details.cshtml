@@ -7,10 +7,10 @@
 <h2>@Model.Title</h2>
 
 <div>
-@foreach (var thread in Model.Topics)
+@foreach (var topic in Model.Topics)
 {
     <div>
-        @thread.Title
+        @Html.ActionLink(topic.Title, "Details", "Topic", new { id = topic.Id }, new { })
     </div>
 }
 </div>
