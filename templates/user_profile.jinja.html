@@ -9,12 +9,13 @@
 			<h2>{{user.display_name}}</h2>
 
 			{% if 'user_id' in session and session.user_id|int == user.id %}
-			Your account is {% if user.is_public %}PUBLIC{% else %}PRIVATE{% endif %}.
+			Your account is
+			<span class="uk-badge">{% if user.is_public %}public{% else %}private{% endif %}</span>.
 
 			<form action="" method="POST">
 				<input type="hidden" name="is_public" value="{{not user.is_public}}">
-				<button type="submit" class="uk-button uk-button-danger">
-					Make {% if user.is_public %}PRIVATE{% else %}PUBLIC{% endif %}
+				<button type="submit" class="uk-button">
+					Make {% if user.is_public %}Private{% else %}Public{% endif %}
 				</button>
 			</form>
 			{% endif %}
