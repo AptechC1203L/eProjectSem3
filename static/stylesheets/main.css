@@ -7,7 +7,6 @@ body {
 }
 
 .site-container {
-	display: flex;
 	padding-top: 2em;
 	padding-bottom: 2em;
 	flex-grow: 1;
@@ -16,14 +15,6 @@ body {
 
 .site-container > *:not(:first-child) {
 	margin-left: 2em;
-}
-
-.site-container > .content {
-	flex-grow: 1;
-}
-
-.site-nav {
-	width: 200px;
 }
 
 .topic {

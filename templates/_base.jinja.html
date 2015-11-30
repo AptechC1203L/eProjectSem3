@@ -57,8 +57,9 @@
   </nav>
 
     <div class="site-container uk-container uk-container-center">
-        <div class="site-nav">
-          <nav class="uk-panel uk-panel-box">
+      <div class="uk-grid" data-uk-grid-margin>
+        <div class="site-nav uk-width-large-1-5 uk-width-small-1-1">
+          <nav class="uk-panel uk-panel-header">
              <h3 class="uk-panel-title">Navigation</h3>
 
              <ul class="uk-nav uk-nav-side uk-nav-parent-icon" data-uk-nav>
@@ -97,10 +98,11 @@
         </div>
 
 
-    <div class="content">
-    {% block content %}
-    	{% endblock %}
-	  </div>
+      <div class="content uk-width-large-4-5">
+      {% block content %}
+      	{% endblock %}
+  	  </div>
+      </div>
 
     </div>
 
