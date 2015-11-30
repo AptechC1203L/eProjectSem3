@@ -1,0 +1,26 @@
+{% extends "_base.jinja.html" %}
+
+{% block content %}
+<div>
+	<div class="uk-block uk-block-muted uk-margin-large-bottom">
+		<div class="uk-container">
+			<div class="uk-panel">
+				<h3 class="uk-panel-title">Welcome to the International Doctor Web Forums!</h3>
+				<p> Justo risus a. Dolor massa risus netus. Velit justo eleifend ipsum. Velit donec leo porta platea arcu suspendisse non litora tellus metus tristique. Magna fusce eget. Justo dolor nunc viverra et elementum. Neque metus urna dis velit iaculis. Donec magna litora senectus porta consectetuer pulvinar felis vel fames netus sit. Metus augue justo pede vehicula. Curae felis placerat sem magna mauris. Morbi risus sociis ac. Porta purus. Lacus donec aptent vestibulum donec. Velit felis eni auctor vivamus. Justo neque dui litora. </p>
+			</div>
+		</div>
+	</div>
+
+	{% for room in rooms %}
+	<div class="uk-panel uk-panel-header uk-margin-large-bottom">
+		<h3 class="uk-panel-title">
+			<i class="uk-icon-{{room['icon']}}"></i>
+			<a href="{{url_for('.room_detail', room_id=room['id'])}}" class="uk-link-muted">{{room["title"]}}</a>
+			<div class="uk-badge">{{room["topics"]|length}} topics</div>
+		</h3>
+
+		<p class="uk-text-muted">{{room["description"]}}</p>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+body {
+	overflow-y: scroll;
+
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+.site-container {
+	display: flex;
+	padding-top: 2em;
+	padding-bottom: 2em;
+	flex-grow: 1;
+	width: 100%;
+}
+
+.site-container > *:not(:first-child) {
+	margin-left: 2em;
+}
+
+.site-container > .content {
+	flex-grow: 1;
+}
+
+.site-nav {
+	width: 200px;
+}
+
+.topic {
+	/*max-width: 600px;*/
+}
+
+footer {
+	padding: 1em;
+}
+
+
+.login-dialog {
+	max-width: 300px;
+}

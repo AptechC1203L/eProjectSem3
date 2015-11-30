@@ -1,0 +1,84 @@
+{% extends "_base.jinja.html" %}
+
+{% block meta %}
+<title>{{topic.title}}</title>
+{% endblock %}
+
+{% block content %}
+    <div class="topic">
+        <h1>{{topic.title}}</h1>
+
+        <a href="{{url_for('room_detail', room_id=topic.room_id)}}">Back to room</a>
+
+        <ul class="uk-comment-list">
+                {% for msg in messages %}
+                <li>
+                <article class="uk-comment" id="reply-{{msg['id']}}">
+                    <header class="uk-comment-header">
+                        <img class="uk-comment-avatar" src="{{msg.author.avatar}}" alt="">
+                        <h4 class="uk-comment-title">
+                            <a href="{{url_for('user_profile', user_id=msg['author']['id'])}}"
+                               class="uk-link-muted">
+                                {{msg["author"]["display_name"]}}
+                            </a>
+                        </h4>
+                        <div class="uk-comment-meta">
+                            <a href="#reply-{{msg['id']}}" class="uk-link-muted">
+                                Created at {{msg.created_at.strftime('%H:%M %d/%m/%y')}}
+                            </a>
+                        </div>
+                    </header>
+
+                    <div class="uk-comment-body">
+                        {{msg.content}}
+                    </div>
+                </article>
+                </li>
+                {% endfor %}
+        </ul>
+
+        <form name="comment-form"
+              action="{{url_for('create_message')}}"
+              method="POST"
+              class="uk-form">
+            <input type="hidden" name="topic_id" value="{{topic['id']}}">
+
+        <fieldset>
+            <legend>Respond to this topic</legend>
+
+            <div class="uk-form-row">
+                <textarea name="content" cols="30" rows="10"
+                          {% if not session['user_id'] %}
+                          disabled placeholder="Please login to post messages."
+                          {% else%}
+                          placeholder="Type your response here..."
+                          {% endif %}></textarea>
+            </div>
+
+            <div class="uk-form-row">
+                <button type="submit"
+                        value="Reply"
+                        class="uk-button uk-button-primary"
+                        {% if not session['user_id'] %}disabled{% endif %}>Reply</button>
+            </div>
+        </fieldset>
+        </form>
+    </div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="/static/vendor/validate/validate.js"></script>
+<script>
+    var validator = new FormValidator('comment-form', [{
+        name: 'content',
+        rules: 'required|min_length[10]'
+    }], function onValidation(errors, event) {
+        $(".field-error").remove();
+
+        errors.forEach(function (error) {
+            $(error.element)
+            .after("<p class='field-error uk-form-help-block uk-text-danger'>" + error.message + "</p>");
+        });
+    });
+</script>
+{% endblock %}

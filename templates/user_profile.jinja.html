@@ -1,0 +1,47 @@
+{% extends "_base.jinja.html" %}
+
+{% block content %}
+
+<div class="user-profile">
+	<div class="uk-block uk-block-muted">
+		<div class="uk-container">
+			<img src="{{big_avatar}}" alt="avatar" class="uk-border-rounded">
+			<h2>{{user.display_name}}</h2>
+
+			{% if 'user_id' in session and session.user_id|int == user.id %}
+			Your account is {% if user.is_public %}PUBLIC{% else %}PRIVATE{% endif %}.
+
+			<form action="" method="POST">
+				<input type="hidden" name="is_public" value="{{not user.is_public}}">
+				<button type="submit" class="uk-button uk-button-danger">
+					Make {% if user.is_public %}PRIVATE{% else %}PUBLIC{% endif %}
+				</button>
+			</form>
+			{% endif %}
+		</div>
+	</div>
+
+	Posts by this user:
+
+	<ul class="uk-list uk-list-space">
+	{% for m in messages_by_user %}
+	<li>
+		<article class="uk-comment">
+		    <header class="uk-comment-header">
+		        <img class="uk-comment-avatar" src="{{user.avatar}}" alt="avatar">
+		        <h4 class="uk-comment-title">
+		        	<a href="{{url_for('topic_detail', topic_id=m.topic_id)}}#reply-{{m.id}}"
+		        	   class="uk-link-muted">
+		        	{{m.topic.title}}
+		        	</a>
+		        </h4>
+		        <div class="uk-comment-meta">...</div>
+		    </header>
+		    <div class="uk-comment-body">{{m.content}}</div>
+		</article>
+	</li>
+	{% endfor %}
+	</ul>
+</div>
+
+{% endblock %}

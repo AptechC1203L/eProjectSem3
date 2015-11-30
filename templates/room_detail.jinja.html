@@ -1,0 +1,111 @@
+{% extends "_base.jinja.html" %}
+
+{% block content %}
+
+<div class="uk-panel uk-panel-header">
+    <h3 class="uk-panel-title">
+    <i class="uk-icon-{{room['icon']}}"></i>
+    {{room["title"]}}
+    </h3>
+
+    <a href="{{url_for('room_list')}}">Back to room list.</a>
+
+    <p class="uk-text-muted">{{room["description"]}}</p>
+
+    <button class="uk-button uk-button-primary"
+            data-uk-modal="{target: '#new-topic-modal', bgclose:false}"
+            {% if not session['user_id'] %}
+            disabled title="Please login to create topics."
+            {% endif %}>
+       <i class="uk-icon-plus-circle"></i> Create Topic
+    </button>
+
+    <div id="new-topic-modal" class="uk-modal">
+        <form name="new-topic-form"
+              class="uk-form"
+              action="{{url_for('create_topic')}}"
+              method="POST">
+            <div class="uk-modal-dialog">
+                <a class="uk-modal-close uk-close"></a>
+
+                <div class="uk-modal-header">
+                    <h2>New Topic</h2>
+                </div>
+
+                <input type="hidden" name="room_id" value="{{room['id']}}">
+                <div class="uk-form-row">
+                    <input name="subject" type="text" placeholder="Subject">
+                </div>
+
+                <div class="uk-form-row">
+                    <textarea name="content"
+                              cols="30"
+                              rows="10"></textarea>
+                </div>
+
+                <div class="uk-modal-footer uk-text-right">
+                    <button type="submit" value="Send" class="uk-button uk-button-primary">
+                    Send
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <table class="uk-table uk-table-striped">
+        <thead>
+            <tr>
+                <th>Topic</th>
+                <th>Poster</th>
+                <th>Posts</th>
+                <th>Created</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for topic in topics %}
+            <tr>
+                <td>
+                    <a href="{{url_for('.topic_detail', topic_id=topic['id'])}}" class="uk-link-muted">
+                    {{topic["title"]}}
+                    </a>
+                </td>
+                <td>
+                    <a href="{{url_for('user_profile', user_id=topic['author']['id'])}}"
+                               class="uk-link-muted">
+                    <img src="{{topic['author']['avatar']}}" alt="avatar" class="uk-border-rounded" style="height: 25px;"> {{topic["author"]["display_name"]}}
+                    </a>
+                </td>
+                <td class="uk-text-muted">{{topic["messages"]|length}}</td>
+                <td class="uk-text-muted">{{topic["created_at"].strftime('%H:%M %d/%m/%y')}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
+
+
+{% block extra_scripts %}
+<script src="/static/vendor/validate/validate.js"></script>
+<script>
+    var validator = new FormValidator('new-topic-form', [
+    {
+        name: 'subject',
+        rules: 'required|min_length[10]'
+    },
+    {
+        name: 'content',
+        rules: 'required|min_length[10]'
+    },
+    ], function(errors, event) {
+        $(".field-error").remove();
+
+        errors.forEach(function (error) {
+            $(error.element)
+            .after("<p class='field-error uk-form-help-block uk-text-danger'>" + error.message + "</p>");
+        });
+    });
+</script>
+{% endblock %}

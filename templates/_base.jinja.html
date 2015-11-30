@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    {% block meta %}
+    <title>Doctor Forums</title>
+    {% endblock %}
+    <link rel="stylesheet" href="/static/vendor/uikit/css/uikit.gradient.css">
+    <link rel="stylesheet" href="/static/vendor/uikit/css/components/form-password.gradient.css">
+    <link rel="stylesheet" href="/static/vendor/uikit/css/components/accordion.gradient.css">
+    <link rel="stylesheet" href="/static/stylesheets/main.css">
+  </head>
+
+  <body>
+
+  <nav class="uk-navbar uk-navbar-attached">
+      <div class="uk-container uk-container-center">
+        <a href="/" class="uk-navbar-brand">
+          <i class="uk-icon-plus uk-text-danger uk-margin-small-right"></i>Doctor Forums
+        </a>
+
+        <div class="uk-navbar-content uk-text-muted uk-text-small">
+          {{g.login_count}} / {{g.total_users}} doctors online
+        </div>
+        {# <ul class="uk-navbar-nav">
+            <li class="uk-active"><a href="">...</a></li>
+            <li><a href="">...</a></li>
+        </ul> #}
+
+        <div class="uk-navbar-content uk-navbar-flip">
+        {% if session.user_id %}
+          <a href="{{url_for('user_profile', user_id=session.user_id)}}"
+             class="uk-margin-small-right uk-link-muted">
+            <img src="{{g.user['avatar']}}" alt="avatar" class="uk-border-rounded" style="height: 25px;">
+            {{g.user['display_name']}}
+          </a>
+
+          <form action="{{url_for('logout', next=request.path)}}"
+                method="POST"
+                class="uk-form uk-margin-remove uk-display-inline-block">
+            <button class="uk-button uk-button-danger">Logout</button>
+          </form>
+        {% else %}
+          <form action="{{url_for('login', next=request.path)}}" method="POST" class="uk-form uk-margin-remove uk-display-inline-block">
+            <input name="email" type="email" placeholder="your@email.com" required>
+
+          <div class="uk-form-password">
+            <input name="password" type="password" placeholder="P@ssw0rd" required>
+            <a class="uk-form-password-toggle" data-uk-form-password>Show</a>
+          </div>
+
+            <button type="submit" class="uk-button uk-button-primary">Login</button>
+          </form>
+        {% endif %}
+        </div>
+      </div>
+  </nav>
+
+    <div class="site-container uk-container uk-container-center">
+        <div class="site-nav">
+          <nav class="uk-panel uk-panel-box">
+             <h3 class="uk-panel-title">Navigation</h3>
+
+             <ul class="uk-nav uk-nav-side uk-nav-parent-icon" data-uk-nav>
+                 <li class="{% if g.nav.in_forums_section %}uk-active{% endif %}">
+                    <a href="{{url_for('room_list')}}"><i class="uk-icon-comments-o"></i> Forums</a>
+                 </li>
+
+{#                  <li class="uk-parent">
+                     <a href="#">Parent</a>
+                     <ul class="uk-nav-sub">
+                         <li><a href="#">Sub item</a></li>
+                         <li><a href="#">Sub item</a></li>
+                     </ul>
+                 </li>
+ #}
+                <li class="{% if g.nav.in_user_search_section %}uk-active{% endif %}">
+                  <a href="{{url_for('user_search')}}"><i class="uk-icon-search"></i> Find Doctors</a>
+                </li>
+
+                 {# <li class="uk-nav-header">Header</li>
+                 <li class="uk-parent"><a href="#"><i class="uk-icon-star"></i> Parent</a></li>
+                 <li><a href="#"><i class="uk-icon-twitter"></i> Item</a></li>
+                  #}
+
+
+                 {% if session.user_id %}
+                 <li class="uk-nav-divider"></li>
+                 <li class="{% if g.nav.in_personal_profile %}uk-active{% endif %}">
+                   <a href="{{url_for('user_profile', user_id=session.user_id)}}">
+                     <i class="uk-icon-user"></i> Personal Profile
+                   </a>
+                 </li>
+                 {% endif %}
+             </ul>
+                 </nav>
+        </div>
+
+
+    <div class="content">
+    {% block content %}
+    	{% endblock %}
+	  </div>
+
+    </div>
+
+    <footer class="uk-block uk-block-secondary uk-contrast">
+        <div class="uk-container uk-container-center">
+        FIXME: This is a nice looking footer waiting to be implemented.
+        </div>
+    </footer>
+
+    <script src="/static/vendor/jquery/jquery-2.1.4.js"></script>
+    <script src="/static/vendor/uikit/js/uikit.js"></script>
+    <script src="/static/vendor/uikit/js/components/form-password.js"></script>
+    <script src="/static/vendor/uikit/js/components/accordison.js"></script>
+
+    {% block extra_scripts %}
+    {% endblock %}
+  </body>
+</html>

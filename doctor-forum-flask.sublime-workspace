@@ -1,0 +1,2317 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"trade",
+				"traderAccountId"
+			],
+			[
+				"trad",
+				"traderAccountId"
+			],
+			[
+				"togge",
+				"toggleRelationshipDetail"
+			],
+			[
+				"char",
+				"chart_div"
+			],
+			[
+				"trader",
+				"tradersWeFollow"
+			],
+			[
+				"Meteor",
+				"ReactMeteorData"
+			],
+			[
+				"create",
+				"createClass"
+			],
+			[
+				"active",
+				"activeDeals"
+			],
+			[
+				"creat",
+				"createClass"
+			],
+			[
+				"noti",
+				"notiDropdown"
+			],
+			[
+				"time",
+				"timeDelta"
+			],
+			[
+				"account",
+				"accountId"
+			],
+			[
+				"data",
+				"dataReady"
+			],
+			[
+				"sub",
+				"subHandle"
+			],
+			[
+				"dela",
+				"dealIds"
+			],
+			[
+				"dealId",
+				"dealIds"
+			],
+			[
+				"deal",
+				"dealIds"
+			],
+			[
+				"stock",
+				"stockInfo"
+			],
+			[
+				"CONS",
+				"console"
+			],
+			[
+				"Price",
+				"priceServiceClient"
+			],
+			[
+				"price",
+				"priceServiceClient"
+			],
+			[
+				"newM",
+				"newMatchedQty"
+			],
+			[
+				"matched",
+				"matchedPrice"
+			],
+			[
+				"ond",
+				"onOrderMatched"
+			],
+			[
+				"cust",
+				"customerId"
+			],
+			[
+				"accounts",
+				"accountsOfUser"
+			],
+			[
+				"exis",
+				"existingDeals"
+			],
+			[
+				"exi",
+				"existingDeals"
+			],
+			[
+				"selli",
+				"sellingOrders"
+			],
+			[
+				"ebroek",
+				"ebrokerAccount"
+			],
+			[
+				"Noti",
+				"NotiSocketOrderSide"
+			],
+			[
+				"not",
+				"notisocketClient"
+			],
+			[
+				"broker",
+				"brokerVndirectSeed"
+			],
+			[
+				"sotmp",
+				"stompClient"
+			],
+			[
+				"borker",
+				"brokerDuber"
+			],
+			[
+				"BrokerVn",
+				"brokerVndirectSeed"
+			],
+			[
+				"DUBER",
+				"_DUBER"
+			],
+			[
+				"stauts",
+				"statusToClassName"
+			],
+			[
+				"exist",
+				"existingDeal"
+			],
+			[
+				"selling",
+				"sellingOrder"
+			],
+			[
+				"ebroker",
+				"ebrokerAccountId"
+			],
+			[
+				"boredr",
+				"border-radius"
+			],
+			[
+				"vnd",
+				"vndAccounts"
+			],
+			[
+				"cn",
+				"console"
+			],
+			[
+				"buying",
+				"buyingPrice"
+			],
+			[
+				"order",
+				"orderId"
+			],
+			[
+				"existing",
+				"existingDeal"
+			],
+			[
+				"followe",
+				"followerDeals"
+			],
+			[
+				"seling",
+				"selingOrder"
+			],
+			[
+				"place",
+				"placeOrder"
+			],
+			[
+				"buing",
+				"buyingOrder"
+			],
+			[
+				"vtr",
+				"vtradeAccountId"
+			],
+			[
+				"blight",
+				"blightAccountId"
+			],
+			[
+				"vtrad",
+				"vtradeUserId"
+			],
+			[
+				"vtrade",
+				"vtradeAccountId"
+			],
+			[
+				"gross",
+				"grossQty"
+			],
+			[
+				"exsi",
+				"existingOrder"
+			],
+			[
+				"matche",
+				"matchedQty"
+			],
+			[
+				"find",
+				"findFollowersOfTrader"
+			],
+			[
+				"fun",
+				"findAccountByBrokerAccount"
+			],
+			[
+				"cloned",
+				"cloneOrder"
+			],
+			[
+				"buy",
+				"buyingOrder"
+			],
+			[
+				"onOrder",
+				"onOrderCreated"
+			],
+			[
+				"Broke",
+				"BrokerVndirect"
+			],
+			[
+				"newMatch",
+				"newMatchedPrice"
+			],
+			[
+				"new",
+				"newMatchedQty"
+			],
+			[
+				"match",
+				"matchedQty"
+			],
+			[
+				"matced",
+				"matchedQty"
+			],
+			[
+				"fnd",
+				"findFollowersOfTrader"
+			],
+			[
+				"fni",
+				"findOne"
+			],
+			[
+				"buynig",
+				"buyingPrice"
+			],
+			[
+				"no",
+				"notiCenterUrl"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"connection",
+				"connection_count"
+			],
+			[
+				"conn",
+				"connection_count"
+			],
+			[
+				"bac",
+				"background"
+			],
+			[
+				"sock",
+				"sock_server"
+			],
+			[
+				"fl",
+				"floorPrice"
+			],
+			[
+				"Stoc",
+				"StockListing"
+			],
+			[
+				"parse",
+				"parseInt"
+			],
+			[
+				"fr",
+				"formatQty"
+			],
+			[
+				"for",
+				"floorPrice"
+			],
+			[
+				"format",
+				"formatQty"
+			],
+			[
+				"bro",
+				"browserSync"
+			],
+			[
+				"STock",
+				"StockStore"
+			],
+			[
+				"cons",
+				"console"
+			],
+			[
+				"BR",
+				"BROWSER_SYNC"
+			],
+			[
+				"prot",
+				"prototype"
+			],
+			[
+				"buyn",
+				"buyingPrice"
+			],
+			[
+				"cosn",
+				"console"
+			],
+			[
+				"ABout",
+				"AboutScreen"
+			],
+			[
+				"About",
+				"AboutScreen"
+			],
+			[
+				"rrer",
+				"render-target"
+			],
+			[
+				"Abot",
+				"AboutScreen"
+			],
+			[
+				"ren",
+				"render-target"
+			],
+			[
+				"uk-panel",
+				"uk-panel-box"
+			],
+			[
+				"uk-",
+				"uk-panel-box"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"min",
+				"min-height"
+			],
+			[
+				"flex-",
+				"flex-grow"
+			],
+			[
+				"Props",
+				"PropTypes"
+			],
+			[
+				"tab",
+				"tabKey"
+			],
+			[
+				"C",
+				"createClass"
+			],
+			[
+				"font-",
+				"font-family"
+			],
+			[
+				"R",
+				"React.Component	Component Template (ES2015)"
+			],
+			[
+				"api",
+				"api_blueprint	statement"
+			],
+			[
+				"get",
+				"get_current_customer	function"
+			],
+			[
+				"ge",
+				"get_all_accounts	function"
+			],
+			[
+				"deals",
+				"deals_by_this_rlts	statement"
+			],
+			[
+				"mimck",
+				"mimicked_deal_id"
+			],
+			[
+				"In",
+				"INTEGER"
+			],
+			[
+				"Fi",
+				"FinancialNumberField	statement"
+			],
+			[
+				"Dat",
+				"DateTimeField	statement"
+			],
+			[
+				"en",
+				"envelope	param"
+			],
+			[
+				"mar",
+				"marshal_with	class"
+			],
+			[
+				"acit",
+				"activeAccount"
+			],
+			[
+				"Follo",
+				"FollowingRel"
+			],
+			[
+				"show",
+				"showWizard"
+			],
+			[
+				"ac",
+				"activeAccount"
+			],
+			[
+				"default",
+				"defaultProps"
+			],
+			[
+				"component",
+				"componentDidMount"
+			],
+			[
+				"compon",
+				"componentDidMount"
+			],
+			[
+				"foll",
+				"followingNoOne"
+			],
+			[
+				"Back",
+				"BackboneComponent"
+			],
+			[
+				"user",
+				"user_service〔variable〕"
+			],
+			[
+				"bower_",
+				"BROWSER_SYNC"
+			],
+			[
+				"react",
+				"react-imageloader"
+			],
+			[
+				"JS",
+				"JS_SRCS"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "templates/_base.jinja.html",
+			"settings":
+			{
+				"buffer_size": 1963,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app.py",
+			"settings":
+			{
+				"buffer_size": 737,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "static/stylesheets/main.css",
+			"settings":
+			{
+				"buffer_size": 232,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/topic.jinja.html",
+			"settings":
+			{
+				"buffer_size": 594,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Anaconda Python Builder",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				]
+			],
+			[
+				"Packages/Makefile/Make.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 164.0,
+		"last_filter": "format",
+		"selected_items":
+		[
+			[
+				"format",
+				"CodeFormatter: Format as HTML Syntax"
+			],
+			[
+				"jin",
+				"Set Syntax: HTML (Jinja2)"
+			],
+			[
+				"sql",
+				"Set Syntax: SQL"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"bash",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"pytohn",
+				"Set Syntax: Python"
+			],
+			[
+				"upper",
+				"Convert Case: Upper Case"
+			],
+			[
+				"javas",
+				"Set Syntax: JavaScript (Babel)"
+			],
+			[
+				"for",
+				"CodeFormatter: Format as Javascript Syntax"
+			],
+			[
+				"babel",
+				"Set Syntax: JavaScript (Babel)"
+			],
+			[
+				"jsx",
+				"Set Syntax: JSX"
+			],
+			[
+				"case",
+				"Convert Case: PascalCase"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"upp",
+				"Convert Case: Upper Case"
+			],
+			[
+				"reest",
+				"SublimeCodeIntel: Reset"
+			],
+			[
+				"codeintel",
+				"SublimeCodeIntel: Dump Import Directories"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"erro",
+				"TypeScript: Show Error List"
+			],
+			[
+				"error",
+				"TypeScript: Show Error List"
+			],
+			[
+				"update",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"rename",
+				"TypeScript: Rename"
+			],
+			[
+				"ini",
+				"Set Syntax: INI"
+			],
+			[
+				"conf",
+				"Set Syntax: EditorConfig"
+			],
+			[
+				"side",
+				"View: Toggle Side Bar"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"ap",
+				"Package Control: Disable Package"
+			],
+			[
+				"defin",
+				"TypeScript: GoToDefinition"
+			],
+			[
+				"frm",
+				"TypeScript: FormatDocument"
+			],
+			[
+				"sig",
+				"TypeScript: SignatureInfo"
+			],
+			[
+				"types",
+				"TypeScript: SignatureInfo"
+			],
+			[
+				"typescrip",
+				"TypeScript: QuickInfoDocumentation"
+			],
+			[
+				"docum",
+				"TypeScript: QuickInfoDocumentation"
+			],
+			[
+				"signa",
+				"TypeScript: SignatureInfo"
+			],
+			[
+				"Snippet: mo",
+				"Snippet: imports a module …"
+			],
+			[
+				"typescript",
+				"TypeScript: ShowErrorList"
+			],
+			[
+				"find r",
+				"TypeScript: FindReferences"
+			],
+			[
+				"Snippet: ",
+				"Snippet: does a triple-slash reference"
+			],
+			[
+				"python",
+				"Set Syntax: Python"
+			],
+			[
+				"javascript",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"javasr",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"sass",
+				"Set Syntax: Sass"
+			],
+			[
+				"pac ins",
+				"Package Control: Install Package"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"lower",
+				"Convert Case: Lower Case"
+			],
+			[
+				"fomat",
+				"CodeFormatter: Format as Javascript Syntax"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"java",
+				"CodeFormatter: Format as Javascript Syntax"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"javascrip",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"text",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"surrou",
+				"Surround: surround selection"
+			],
+			[
+				"surround",
+				"Surround: surround selection"
+			],
+			[
+				"package ins",
+				"Package Control: Install Package"
+			],
+			[
+				"pack ins",
+				"Package Control: Install Package"
+			],
+			[
+				"ruby",
+				"Set Syntax: Ruby"
+			],
+			[
+				"side bar",
+				"View: Toggle Side Bar"
+			],
+			[
+				"css3",
+				"Set Syntax: CSS3"
+			],
+			[
+				"pythonim",
+				"Set Syntax: PythonImproved"
+			],
+			[
+				"space",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"set in",
+				"Anaconda: Set Python interpreter"
+			],
+			[
+				"python im",
+				"Set Syntax: PythonImproved"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"scala",
+				"Set Syntax: Scala"
+			],
+			[
+				"prolog",
+				"SublimeREPL: Prolog (Sicstus)"
+			],
+			[
+				"input",
+				"InputHelper"
+			],
+			[
+				"unfold",
+				"Code Folding: Unfold All"
+			],
+			[
+				"fold",
+				"Code Folding: Fold Tag Attributes"
+			],
+			[
+				"ji",
+				"Set Syntax: Jinja Templates"
+			],
+			[
+				"format ht",
+				"CodeFormatter: Format as HTML Syntax"
+			],
+			[
+				"jinja",
+				"Set Syntax: HTML (Jinja Templates)"
+			],
+			[
+				"enable lint",
+				"Anaconda: Enable linting on this file"
+			],
+			[
+				"lint",
+				"Code Folding: Fold Tag Attributes"
+			],
+			[
+				"linting",
+				"Anaconda: Enable linting on this file"
+			],
+			[
+				"disable l",
+				"Anaconda: Disable linting on this file"
+			],
+			[
+				"inja",
+				"Set Syntax: Jinja Templates"
+			],
+			[
+				"sidebar",
+				"View: Toggle Side Bar"
+			],
+			[
+				"pack instal",
+				"Package Control: Install Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"isntall",
+				"Package Control: Install Package"
+			],
+			[
+				"virtual",
+				"SublimeREPL: Python - virtualenv"
+			],
+			[
+				"repl pyth",
+				"SublimeREPL: Python - virtualenv"
+			],
+			[
+				"repl pytho",
+				"SublimeREPL: Python - virtualenv"
+			],
+			[
+				"repl",
+				"SublimeREPL: Python"
+			],
+			[
+				"sider",
+				"View: Toggle Side Bar"
+			],
+			[
+				"repl vir",
+				"SublimeREPL: Python - virtualenv"
+			],
+			[
+				"ipython",
+				"Set Syntax: IPython"
+			],
+			[
+				"rel pytho",
+				"SublimeREPL: Python - IPython"
+			],
+			[
+				"repl python",
+				"SublimeREPL: Python"
+			],
+			[
+				"repl pythno",
+				"SublimeREPL: Python"
+			],
+			[
+				"emmet",
+				"Emmet: Expand Abbreviation"
+			],
+			[
+				"vala",
+				"Set Syntax: Vala"
+			],
+			[
+				"script",
+				"Set Syntax: VBScript"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"beau",
+				"HTMLBeautify"
+			],
+			[
+				"markd",
+				"Set Syntax: Markdown Extended"
+			],
+			[
+				"adoc",
+				"Set Syntax: AsciiDoc"
+			],
+			[
+				"mark",
+				"Set Syntax: Markdown Extended"
+			],
+			[
+				"ascii",
+				"Set Syntax: AsciiDoc"
+			],
+			[
+				"",
+				"Code Folding: Fold Tag Attributes"
+			],
+			[
+				"liqui",
+				"Set Syntax: HTML Liquid"
+			],
+			[
+				"flake",
+				"User: Python Flake8 Lint"
+			],
+			[
+				"set syn",
+				"Set Syntax: C"
+			],
+			[
+				"markdown",
+				"Set Syntax: Markdown Extended"
+			],
+			[
+				"isnta",
+				"Package Control: Install Package"
+			],
+			[
+				"yptho",
+				"Set Syntax: Python"
+			],
+			[
+				"fla",
+				"User: Python Flake8 Lint"
+			],
+			[
+				"upd",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"package",
+				"Preferences: Package Control Settings – Default"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"user",
+				"Preferences: Settings - User"
+			]
+		],
+		"width": 579.0
+	},
+	"console":
+	{
+		"height": 251.0,
+		"history":
+		[
+			"bogo.process_sequence('nos')",
+			"bogo.process_sequence('nò')",
+			"bogo.process_sequence('nòs')",
+			"bogo",
+			"import bogo",
+			"sublime.platform()",
+			"sublime.architecture()",
+			"sublime.channel()",
+			"int(sublime.version())",
+			"type(sublime.version())",
+			"sublime.version()",
+			"view.settings().has('BoGo')",
+			"view.settings().has('Bogo')",
+			"view.settings().get('Bogo')",
+			"view.settings().get('bogo-rule')",
+			"view.settings().get('bogo.enabled')",
+			"view.settings().get('bogo_enabled')",
+			"view.settings().get('bogo')",
+			"view.settings()",
+			"view.settings().get('bogo.enabled')",
+			"view.settings()",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"a",
+			"a.a = 5",
+			"a.a",
+			"a = sublime.Region(1, 2)",
+			"s = sublime.Settings('bogo')",
+			"sublime.Settings('bogo')",
+			"sublime.Settings()",
+			"sublime.settings",
+			"view.sel()",
+			"len(view.sel())",
+			"sublime.active_window().active_view()",
+			"sublime.active_window()",
+			"sublime.window",
+			"sublime.view",
+			"[view.substr(view.word(x)) for x in view.sel()]",
+			"[view.substr(x) for x in view.sel()]",
+			"[view.word(x) for x in view.sel()]",
+			"[x for x in view.sel()]",
+			"for i in range(4): print(\"i\")",
+			"for i in range(4): print(\"i\")\\n",
+			"for i in range(4): print(\"i\")",
+			"for i in view.sel(): print(\"a\")",
+			"for i in view.sel(): i",
+			"for i in view.sel(): print(i)",
+			"for i in view.sel(): print(i) end",
+			"for i in view.sel(): print(i)",
+			"for i in view.sel():",
+			"for i in view.sel(): print(i)",
+			"for i in view.sel() print(i)",
+			"for i in view.sel(): print(i)",
+			"for i in view.sel(): print i",
+			"view.sel()",
+			"view",
+			"dir(sublime.Selection)",
+			"sublime.Selection",
+			"sublime"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/chin/dev/playground/doctor-forum-flask",
+		"/home/chin/dev/playground/doctor-forum-flask/templates"
+	],
+	"file_history":
+	[
+		"/home/chin/dev/playground/doctor-forum-flask/1-initial-schema.sql",
+		"/home/chin/dev/playground/doctor-forum-flask/templates/topic.jinja.html",
+		"/home/chin/dev/playground/doctor-forum-flask/templates/room-list.jinja.html",
+		"/home/chin/dev/playground/doctor-forum-flask/templates/doctor-list.jinja.html",
+		"/home/chin/dev/playground/doctor-forum-flask/templates/_base.jinja.html",
+		"/home/chin/dev/playground/doctor-forum-flask/app.py",
+		"/home/chin/dev/playground/doctor-forum-flask/templates/index.jinja.html",
+		"/home/chin/dev/playground/doctor-forum-flask/doctor-forum-flask.sublime-project",
+		"/home/chin/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/chin/dev/vndirect/duber/lib/collections.js",
+		"/home/chin/dev/vndirect/duber/client/components/Portfolio.jsx",
+		"/home/chin/dev/vndirect/duber/lib/account.js",
+		"/home/chin/dev/vndirect/duber/server/cloning.js",
+		"/home/chin/.config/sublime-text-3/Packages/User/JavaScript (Babel).sublime-settings",
+		"/home/chin/dev/vndirect/duber/client/components/DealDetail.jsx",
+		"/home/chin/dev/vndirect/duber/client/stylesheets/components/_portfolio.scss",
+		"/home/chin/dev/vndirect/duber/client/components/DealList.jsx",
+		"/home/chin/dev/vndirect/duber/client/components/DealCard.jsx",
+		"/home/chin/dev/vndirect/duber/client/components/RelationshipDetail.jsx",
+		"/home/chin/dev/vndirect/duber/fixtures/deals.js",
+		"/home/chin/dev/vndirect/duber/duber.html",
+		"/home/chin/dev/vndirect/duber/server/publications.js",
+		"/home/chin/dev/vndirect/duber/client/components/OverviewScreen.jsx",
+		"/home/chin/dev/vndirect/duber/lib/util.js",
+		"/home/chin/dev/vndirect/duber/client/stylesheets/main.scss",
+		"/home/chin/dev/vndirect/duber/client/stylesheets/uikit/core/_text.scss",
+		"/home/chin/dev/vndirect/duber/.meteor/packages",
+		"/home/chin/dev/vndirect/duber/client/stylesheets/_variables-main.scss",
+		"/home/chin/dev/vndirect/duber/lib/market.js",
+		"/home/chin/dev/vndirect/duber/server/priceservice.js",
+		"/home/chin/dev/vndirect/duber/client/stylesheets/_uikit-customize.scss",
+		"/home/chin/dev/vndirect/duber/client/stylesheets/uikit/themes/almost-flat/_uikit.scss",
+		"/home/chin/dev/vndirect/duber/client/components/MainNavBar.jsx",
+		"/home/chin/dev/vndirect/duber/server/main.js",
+		"/home/chin/dev/vndirect/duber/client/stylesheets/components/_theme.scss",
+		"/home/chin/dev/vndirect/duber/client/stylesheets/uikit/themes/almost-flat/_variables.scss",
+		"/home/chin/dev/vndirect/duber/.gitignore",
+		"/home/chin/dev/vndirect/duber/client/stylesheets/uikit/themes/almost-flat/_comment.scss",
+		"/home/chin/dev/vndirect/less2sass.sh",
+		"/home/chin/dev/vndirect/less2sass.js",
+		"/home/chin/dev/vndirect/duber/client/stylesheets/uikit/themes/almost-flat/_base.scss",
+		"/home/chin/dev/vndirect/playground/react+uikit/main.jsx",
+		"/home/chin/dev/vndirect/duber/client/components/StatsBox.jsx",
+		"/home/chin/dev/vndirect/playground/react+uikit/index.html",
+		"/home/chin/dev/vndirect/playground/react+uikit/Makefile",
+		"/home/chin/dev/vndirect/playground/react+uikit/main.js",
+		"/home/chin/dev/vndirect/duber/client/stylesheets/uikit/core/_modal.scss",
+		"/home/chin/dev/vndirect/duber/client/stylesheets/components/_button.scss",
+		"/home/chin/dev/vndirect/duber/client/stylesheets/_variables.scss",
+		"/home/chin/dev/vndirect/duber/client/components/PerformanceBox.jsx",
+		"/home/chin/dev/vndirect/duber/tests/jasmine/server/integration/OrderProcessorSpec.js",
+		"/home/chin/dev/vndirect/duber/tests/jasmine/server/integration/OrderProcessorWithDuberSpec.js",
+		"/home/chin/dev/vndirect/duber/server/methods.js",
+		"/home/chin/dev/vndirect/duber/client/main.jsx",
+		"/home/chin/dev/vndirect/duber/README.md",
+		"/home/chin/dev/vndirect/duber/server/market.js",
+		"/home/chin/dev/vndirect/duber/lib/tradeapi.js",
+		"/home/chin/dev/vndirect/duber/server/notisocket.js",
+		"/home/chin/dev/vndirect/duber/app.jsx",
+		"/home/chin/dev/vndirect/duber/server/broker/vndirect.js",
+		"/home/chin/dev/vndirect/duber/deploy.sh",
+		"/home/chin/dev/vndirect/duber/server/priceService.js",
+		"/home/chin/dev/vndirect/duber/account.js",
+		"/home/chin/dev/vndirect/playground/main.js",
+		"/home/chin/dev/vndirect/playground/fakenotiserver.js",
+		"/home/chin/dev/vndirect/duber/ignored/metatrade_account.txt",
+		"/home/chin/dev/vndirect/playground/fakenotiserver.j",
+		"/home/chin/dev/vndirect/duber/fakenotiserver.js",
+		"/home/chin/dev/vndirect/duber/client/components/VndirectAuthentication.jsx",
+		"/home/chin/dev/vndirect/duber/tradeapi.js",
+		"/home/chin/dev/vndirect/duber/client/components/PersonalBox.jsx",
+		"/home/chin/dev/vndirect/duber/client/components/FollowerOverviewScreen.jsx",
+		"/home/chin/dev/vndirect/duber/client/components/TraderOverviewScreen.jsx",
+		"/home/chin/dev/vndirect/duber/server/broker/duber.js",
+		"/home/chin/dev/vndirect/duber/.meteor/versions",
+		"/home/chin/dev/vndirect/duber/client/components/DealHistory.jsx",
+		"/home/chin/dev/vndirect/duber/server/broker/vndirect_seed.js",
+		"/home/chin/dev/vndirect/duber/duber.sublime-project",
+		"/home/chin/dev/vndirect/priceboard/index.html",
+		"/home/chin/dev/vndirect/priceboard/styles/main.css",
+		"/home/chin/dev/vndirect/priceboard/gulpfile.js",
+		"/home/chin/dev/vndirect/price-widget/src/main.js",
+		"/home/chin/dev/vndirect/duber/priceService.js",
+		"/tmp/chart/index.html",
+		"/home/chin/dev/vndirect/duber/client/components/RegistrationScreen.jsx",
+		"/tmp/invert/index.html",
+		"/home/chin/dev/vndirect/duber/client/stylesheets/uikit/themes/almost-flat/_button.scss",
+		"/home/chin/dev/vndirect/duber/client/stylesheets/uikit/_uikit.scss",
+		"/home/chin/dev/vndirect/duber/client/stylesheets/components/_authentication.scss",
+		"/home/chin/dev/vndirect/duber/client/stylesheets/uikit/themes/almost-flat/_block.scss",
+		"/home/chin/dev/vndirect/duber/client/stylesheets/uikit/_uikit-variables.scss",
+		"/home/chin/dev/vndirect/duber/client/stylesheets/uikit/themes/almost-flat/uikit.scss",
+		"/home/chin/dev/vndirect/duber/client/stylesheets/uikit/themes/almost-flat/variables.scss",
+		"/home/chin/dev/vndirect/duber/notification.js",
+		"/home/chin/dev/vndirect/duber/client/stylesheets/uikit/themes/almost-flat/uikit-customizer.scss",
+		"/home/chin/dev/vndirect/smartboard/app/scripts/component/config.js",
+		"/home/chin/dev/vndirect/smartboard/app/scripts/component/trade.js",
+		"/home/chin/dev/vndirect/smartboard/app/scripts/component/notification.js",
+		"/home/chin/dev/vndirect/smartboard/app/scripts/component/legacy-value-mapper.js",
+		"/home/chin/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/chin/.config/sublime-text-3/Packages/Emmet/Default (Linux).sublime-keymap",
+		"/home/chin/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/chin/dev/vndirect/duber/util.js",
+		"/home/chin/dev/vndirect/duber/server/account.js",
+		"/home/chin/dev/vndirect/duber/methods.js",
+		"/home/chin/dev/vndirect/duber/server/testcases.txt",
+		"/home/chin/dev/vndirect/duber/client/utils.js",
+		"/home/chin/Documents/Philosophy.txt",
+		"/tmp/callback.js",
+		"/home/chin/dev/vndirect/wstestloader/data3.txt",
+		"/home/chin/dev/vndirect/wstestloader/data2.txt",
+		"/home/chin/dev/vndirect/wstestloader/pingtest/swarm_client.js",
+		"/home/chin/dev/vndirect/wstestloader/pingtest/server.js",
+		"/home/chin/dev/vndirect/wstestloader/pingtest/master_client.js",
+		"/home/chin/dev/vndirect/wstestloader/package.json",
+		"/home/chin/dev/vndirect/smartboard/package.json",
+		"/home/chin/dev/vndirect/smartboard/app/scripts/app.js",
+		"/home/chin/dev/vndirect/directboard/target/banggia/js/banggia/SocketManager.js",
+		"/home/chin/dev/vndirect/smartboard/app/scripts/legacy/SocketManager.js",
+		"/home/chin/dev/vndirect/smartboard/app/index.html",
+		"/home/chin/dev/vndirect/directboard/src/main/webapp/js/banggia/System.js",
+		"/home/chin/dev/vndirect/smartboard/README.md",
+		"/home/chin/bin/sublime_text",
+		"/home/chin/dev/vndirect/smartboard/app/scripts/component/track.js",
+		"/home/chin/dev/vndirect/smartboard/smartboard.sublime-project",
+		"/home/chin/dev/vndirect/smartboard/styles/main.css",
+		"/home/chin/dev/vndirect/smartboard/app/scripts/legacy/StockInfoView.js",
+		"/home/chin/dev/vndirect/smartboard/app/scripts/legacy/System.js"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 92.0,
+		"where_history":
+		[
+			"/home/chin/dev/vndirect/duber",
+			"/home/chin/dev/vndirect/directboard/src/main/webapp/js",
+			"/home/chin/dev/vndirect/directboard/",
+			"/home/chin/dev/vndirect/smartboard/app/scripts",
+			"/home/chin/dev/vndirect/smartboard/app/",
+			"/home/chin/dev/vndirect/smartboard/app/styles",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"toehueh",
+			"deallist",
+			"activeDeals",
+			"vtr",
+			"div",
+			"span",
+			"activeAccount",
+			"line-height-base",
+			"hook-base-body",
+			"))",
+			" // ",
+			"// ",
+			"///",
+			"//",
+			")  ",
+			"     ",
+			"    ",
+			"   ",
+			"  ",
+			")",
+			"/g, '",
+			".replace(",
+			"))",
+			"pipe(",
+			"))",
+			";",
+			"sellDeal",
+			"fff",
+			"SELLING",
+			"BUYING",
+			"global-height",
+			"600px",
+			"kl",
+			"mack",
+			"startDate",
+			"timeDelta",
+			"startDate",
+			"avatar",
+			"$in",
+			"Loading...",
+			"count(",
+			"console",
+			"latest",
+			"console.",
+			"change",
+			"stocks",
+			"priceService",
+			"NOTISOCKET",
+			"trader",
+			"complete",
+			"second",
+			"server",
+			"orderIds",
+			"message",
+			"payload",
+			"message",
+			"avatar",
+			"console",
+			"dealToSell",
+			"existingDeal",
+			"paddingAccounts",
+			"\"",
+			"ebrokerAccountId",
+			"log",
+			"vbrokerUserId",
+			"onOrderMatched",
+			"vbrokerAccountId",
+			"$in",
+			"primary",
+			"_",
+			"comment-primary-color",
+			".less",
+			"global-grid-gutter",
+			".getDOMNode()",
+			"notiHistoryUrl",
+			"li",
+			"keys",
+			"body",
+			"li",
+			"ul",
+			"img",
+			"translate",
+			"selingOrder",
+			"1000",
+			"this",
+			"deals",
+			"find",
+			"overview",
+			"cons",
+			"findAccountFromOrder",
+			"orderside",
+			"sellingOrder",
+			"'info'",
+			"pingPong",
+			"cons",
+			"console",
+			"cons",
+			"amount",
+			"userID",
+			"trigger",
+			"executedResponse",
+			"broker",
+			"ga(",
+			"track",
+			"ping",
+			"connection",
+			"trackConnectionEvent",
+			"track",
+			"track.event('connection'",
+			"trackConnectionEvent",
+			"connection",
+			"tab button",
+			"pingPong",
+			"connection",
+			"ping",
+			"track",
+			"tablesorter",
+			"applySortTable",
+			"tablesorter",
+			"'connection'",
+			"msg latency",
+			"stopTiming",
+			"msg latency",
+			"SocketManager",
+			"SockJS",
+			"wss",
+			"track",
+			"HNX"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			")",
+			"quantity",
+			"",
+			"// animation",
+			"// transition:",
+			"// animation:",
+			"// transition:",
+			"// animation:",
+			"// animation",
+			"// transition",
+			"// animation",
+			".tabs-right > .nav-tabs",
+			".tabs-left > .nav-tabs",
+			"./lib/",
+			"'",
+			"{client-deps}/.npm/package/node_modules/bootflat/bootflat/scss/bootflat/",
+			"className=",
+			"dd",
+			"\"./lib/bootstrap/stylesheets/bootstrap",
+			"\"../bower_components/bootstrap-sass/assets/stylesheets/bootstrap",
+			"../bower_components/bootstrap-sass/assets/stylesheets/bootstrap",
+			"declare ",
+			"",
+			"export declare ",
+			"Postgres.",
+			"utils.formatCu",
+			"this.props.follower.",
+			"follower.",
+			"DISPATCHER",
+			"PortfolioPanel",
+			"'",
+			"$vnd-milky",
+			"$vnd-light-gray",
+			"$vnd-dark-gray",
+			"$vnd-orange",
+			"",
+			"scale",
+			"",
+			"db.session",
+			"self.db_session",
+			"float",
+			"Float",
+			"</dd>",
+			"<dd>",
+			"",
+			"deal",
+			"deals",
+			"=",
+			"\"",
+			"user_service",
+			"rgb(243, 145, 0)",
+			"sockjs_clients",
+			"db.",
+			"db.Model",
+			"trader-line",
+			"sql.Numeric",
+			"sql.String",
+			"sql.Column",
+			"\"symbol\"",
+			"",
+			"html",
+			"format",
+			"\"/static/img",
+			"Bb",
+			"src=\"{% static '$1' %}\"",
+			"href=\"{% static '$1' %}\"",
+			"src=\"{% static '$1' %}\"",
+			"href=\"{% static '$1' %}\"",
+			"src=\"{% static '$1' %}\"",
+			"href=\"{% static '$1' %}\"",
+			"href=\"{% static '$1' %}\" rel",
+			"href=\"{% static '$1' %}\"",
+			"get_upcoming_event_links",
+			"get_upcoming_events",
+			"parse_ical",
+			"get_event",
+			"get_event_numeric_id",
+			"get_ical_link",
+			"blockArray",
+			"block",
+			"keyArray",
+			"keyIndex",
+			"keyOffset",
+			"decode",
+			"result",
+			"key",
+			"decodedCharCode",
+			"times",
+			"slide",
+			"tmpOffset",
+			"tmp",
+			"prefixArray",
+			"currentCharArray",
+			"offset",
+			"currentCharCode",
+			"string",
+			"i",
+			"buf",
+			"arg",
+			"prefix",
+			"seed",
+			"magic_helper",
+			"magic_helper1",
+			"magic_global",
+			"magic_result",
+			"magic_function",
+			"currentChar",
+			"magic_number",
+			"magic_string",
+			"index",
+			"delimitor",
+			"shell",
+			"\", \"",
+			"a class=\"explanation-box\" href=\"/index.php/what-is-speed-dating/\"",
+			"3px 10px",
+			"",
+			"--recursive --force",
+			"VOWEL_CHARS",
+			"get_im_rules",
+			"KEY_TYPE_PASSTHROUGH",
+			"ACTION_ADD_TONE",
+			"ACTION_ADD_MARK",
+			", ",
+			"highlight",
+			".post-description",
+			"",
+			"BAR",
+			"BREVE"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "templates/_base.jinja.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1963,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1886,
+								1886
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jinja2/Syntaxes/HTML (Jinja2).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 432.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 737,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								468,
+								468
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python Improved/PythonImproved.tmLanguage",
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "static/stylesheets/main.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 232,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								160,
+								160
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "templates/topic.jinja.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 594,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								450,
+								450
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jinja2/Syntaxes/HTML (Jinja2).tmLanguage",
+							"tab_size": 2
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.doc":
+	{
+		"height": 0.0
+	},
+	"output.errorlist":
+	{
+		"height": 180.0
+	},
+	"output.exec":
+	{
+		"height": 160.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 279.0
+	},
+	"pinned_build_system": "Packages/Makefile/Make.sublime-build",
+	"project": "doctor-forum-flask.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"app",
+				"app.py"
+			],
+			[
+				"base",
+				"templates/_base.jinja.html"
+			],
+			[
+				"colle",
+				"lib/collections.js"
+			],
+			[
+				"cloning",
+				"server/cloning.js"
+			],
+			[
+				"detail",
+				"client/components/DealDetail.jsx"
+			],
+			[
+				"account",
+				"lib/account.js"
+			],
+			[
+				"deallist",
+				"client/components/DealList.jsx"
+			],
+			[
+				"colel",
+				"lib/collections.js"
+			],
+			[
+				"publi",
+				"server/publications.js"
+			],
+			[
+				"deals",
+				"fixtures/deals.js"
+			],
+			[
+				"port",
+				"client/stylesheets/components/_portfolio.scss"
+			],
+			[
+				"portf",
+				"client/components/Portfolio.jsx"
+			],
+			[
+				"duber",
+				"duber.html"
+			],
+			[
+				"card",
+				"client/components/DealCard.jsx"
+			],
+			[
+				"util",
+				"lib/util.js"
+			],
+			[
+				"main",
+				"client/stylesheets/main.scss"
+			],
+			[
+				"text",
+				"client/stylesheets/uikit/core/_text.scss"
+			],
+			[
+				"co",
+				"lib/collections.js"
+			],
+			[
+				"dealcard",
+				"client/components/DealCard.jsx"
+			],
+			[
+				"coll",
+				"lib/collections.js"
+			],
+			[
+				"paca",
+				".meteor/packages"
+			],
+			[
+				"collection",
+				"lib/collections.js"
+			],
+			[
+				"collect",
+				"lib/collections.js"
+			],
+			[
+				"deal",
+				"client/components/DealCard.jsx"
+			],
+			[
+				"price",
+				"server/priceservice.js"
+			],
+			[
+				"market",
+				"lib/market.js"
+			],
+			[
+				"collec",
+				"lib/collections.js"
+			],
+			[
+				"nav",
+				"client/components/MainNavBar.jsx"
+			],
+			[
+				"theme",
+				"client/stylesheets/components/_theme.scss"
+			],
+			[
+				"vari",
+				"client/stylesheets/_variables-main.scss"
+			],
+			[
+				"ignor",
+				".gitignore"
+			],
+			[
+				"navbar",
+				"client/components/MainNavBar.jsx"
+			],
+			[
+				"stats",
+				"client/components/StatsBox.jsx"
+			],
+			[
+				"dealdet",
+				"client/components/DealDetail.jsx"
+			],
+			[
+				"var",
+				"client/stylesheets/_variables.scss"
+			],
+			[
+				"modal",
+				"client/stylesheets/uikit/core/_modal.scss"
+			],
+			[
+				"cloni",
+				"server/cloning.js"
+			],
+			[
+				"per",
+				"client/components/PerformanceBox.jsx"
+			],
+			[
+				"overv",
+				"client/components/OverviewScreen.jsx"
+			],
+			[
+				"mainjs",
+				"server/main.js"
+			],
+			[
+				"method",
+				"server/methods.js"
+			],
+			[
+				"withdub",
+				"tests/jasmine/server/integration/OrderProcessorWithDuberSpec.js"
+			],
+			[
+				"spec",
+				"tests/jasmine/server/integration/OrderProcessorSpec.js"
+			],
+			[
+				"ovevie",
+				"client/components/OverviewScreen.jsx"
+			],
+			[
+				"read",
+				"README.md"
+			],
+			[
+				"trade",
+				"lib/tradeapi.js"
+			],
+			[
+				"noti",
+				"server/notisocket.js"
+			],
+			[
+				"dep",
+				"deploy.sh"
+			],
+			[
+				"vndi",
+				"server/broker/vndirect.js"
+			],
+			[
+				"deploy",
+				"deploy.sh"
+			],
+			[
+				"server/cloning.js",
+				"server/cloning.js"
+			],
+			[
+				"depl",
+				"deploy.sh"
+			],
+			[
+				"notis",
+				"server/notisocket.js"
+			],
+			[
+				"clon",
+				"server/cloning.js"
+			],
+			[
+				"vndirect",
+				"server/broker/vndirect.js"
+			],
+			[
+				"over",
+				"client/components/OverviewScreen.jsx"
+			],
+			[
+				"version",
+				".meteor/versions"
+			],
+			[
+				"perfor",
+				"client/components/PerformanceBox.jsx"
+			],
+			[
+				"authen",
+				"client/components/VndirectAuthentication.jsx"
+			],
+			[
+				"clientmain",
+				"client/main.jsx"
+			],
+			[
+				"clonig",
+				"server/cloning.js"
+			],
+			[
+				"fixtu",
+				"fixtures/deals.js"
+			],
+			[
+				"deald",
+				"client/components/DealDetail.jsx"
+			],
+			[
+				"overview",
+				"client/components/OverviewScreen.jsx"
+			],
+			[
+				"regist",
+				"client/components/RegistrationScreen.jsx"
+			],
+			[
+				"main.sc",
+				"client/stylesheets/main.scss"
+			],
+			[
+				"ap",
+				"app.jsx"
+			],
+			[
+				"mainnav",
+				"client/components/MainNavBar.jsx"
+			],
+			[
+				"main.",
+				"client/main.jsx"
+			],
+			[
+				"tader",
+				"client/components/TraderOverviewScreen.jsx"
+			],
+			[
+				".html",
+				"duber.html"
+			],
+			[
+				"perfo",
+				"client/components/PerformanceBox.jsx"
+			],
+			[
+				"app.",
+				"app.jsx"
+			],
+			[
+				"main.j",
+				"client/main.jsx"
+			],
+			[
+				"regis",
+				"client/components/RegistrationScreen.jsx"
+			],
+			[
+				"readme",
+				"README.md"
+			],
+			[
+				"tradre",
+				"client/components/TraderOverviewScreen.jsx"
+			],
+			[
+				"socketmanager",
+				"smartboard/app/scripts/legacy/SocketManager.js"
+			],
+			[
+				"readm",
+				"README.md"
+			],
+			[
+				"pac",
+				"smartboard/package.json"
+			],
+			[
+				"swarm",
+				"wstestloader/pingtest/swarm_client.js"
+			],
+			[
+				"track",
+				"app/scripts/component/track.js"
+			],
+			[
+				"idex.t",
+				"app/index.html"
+			],
+			[
+				".py",
+				"loadtest.py"
+			],
+			[
+				"socketm",
+				"app/scripts/legacy/SocketManager.js"
+			],
+			[
+				"global",
+				"app/styles/_global.scss"
+			],
+			[
+				"legay",
+				"app/styles/_legacy.scss"
+			],
+			[
+				"bower-requirejs.js",
+				"node_modules/bower-requirejs/bin/bower-requirejs.js"
+			],
+			[
+				"grunt",
+				"Gruntfile.js"
+			],
+			[
+				"package",
+				"packages/client-deps/package.js"
+			],
+			[
+				"panel",
+				"client/stylesheets/lib/bootflat/_panel.scss"
+			],
+			[
+				"pack",
+				"packages/client-deps/package.js"
+			],
+			[
+				"packag",
+				"packages/client-deps/package.js"
+			],
+			[
+				"api",
+				"duber/api.py"
+			],
+			[
+				"config",
+				"duber/frontend/config.systemjs.js"
+			],
+			[
+				"webtra",
+				"duber/templates/webtrade.jinja.html"
+			],
+			[
+				"authe",
+				"duber/static/node_modules/request/tests/test-headers.js"
+			],
+			[
+				"model",
+				"duber/models.py"
+			],
+			[
+				"requi",
+				"requirements.txt"
+			],
+			[
+				"make",
+				"Makefile"
+			],
+			[
+				"init__",
+				"duber/__init__.py"
+			],
+			[
+				"launche",
+				"launcher.py"
+			],
+			[
+				"models",
+				"duber/models.py"
+			],
+			[
+				"fix",
+				"db/fixtures.sql"
+			],
+			[
+				"ser",
+				"duber/service.py"
+			],
+			[
+				"__",
+				"duber/__init__.py"
+			],
+			[
+				"__init",
+				"duber/__init__.py"
+			],
+			[
+				"cloner",
+				"duber/cloner.py"
+			],
+			[
+				"schema",
+				"db/schema.sql"
+			],
+			[
+				"web",
+				"duber/webtrade.py"
+			],
+			[
+				"webt",
+				"duber/templates/webtrade.jinja.html"
+			],
+			[
+				"webtrade",
+				"duber/templates/webtrade.jinja.html"
+			],
+			[
+				"fixture",
+				"db/fixtures.sql"
+			],
+			[
+				"sing",
+				"duber/frontend/scripts/singletons.js"
+			],
+			[
+				"moedl",
+				"duber/frontend/scripts/models.js"
+			],
+			[
+				"wiazrd",
+				"duber/frontend/scripts/components/WizardDialog.jsx"
+			],
+			[
+				"tabc",
+				"duber/frontend/styles/components/_tabs.scss"
+			],
+			[
+				"views",
+				"duber/views.py"
+			],
+			[
+				"singl",
+				"duber/frontend/scripts/singletons.js"
+			],
+			[
+				"bower",
+				"duber/frontend/bower.json"
+			],
+			[
+				"not",
+				"duber/notification.py"
+			],
+			[
+				"single",
+				"socialtrading/frontend/scripts/singletons.js"
+			],
+			[
+				"backbone",
+				"socialtrading/frontend/scripts/components/BackboneComponent.jsx"
+			],
+			[
+				"portfo",
+				"socialtrading/frontend/scripts/components/Portfolio.jsx"
+			],
+			[
+				"mode",
+				"socialtrading/models.py"
+			],
+			[
+				"wizard",
+				"socialtrading/frontend/scripts/components/WizardDialog.jsx"
+			],
+			[
+				"tarderlis",
+				"socialtrading/frontend/scripts/components/TraderListingScreen.jsx"
+			],
+			[
+				"webtr",
+				"socialtrading/templates/webtrade.jinja.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 502.0,
+		"last_filter": "smart",
+		"selected_items":
+		[
+			[
+				"smart",
+				"~/dev/vndirect/smartboard/smartboard.sublime-workspace"
+			],
+			[
+				"",
+				"~/dev/duber/duber.sublime-project"
+			]
+		],
+		"width": 382.0
+	},
+	"select_symbol":
+	{
+		"height": 230.0,
+		"last_filter": "getactive",
+		"selected_items":
+		[
+			[
+				"getactive",
+				"getActiveAccount"
+			],
+			[
+				"app",
+				"apprunner"
+			],
+			[
+				"VKInternAtom",
+				"VKInternAtom"
+			],
+			[
+				"NextE",
+				"XNextEvent"
+			],
+			[
+				"",
+				"append_comps"
+			]
+		],
+		"width": 471.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 251.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
