@@ -4,28 +4,28 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DoctorForums.Models;
+using DoctorForums.DAO;
 
 namespace DoctorForums.Controllers
 {
     public class RoomsController : Controller
     {
-        private MainLinqDataDataContext db;
-
+        private MainDataClassDataContext db;
         public RoomsController()
         {
-            this.db = new Models.MainLinqDataDataContext();
+            this.db = new MainDataClassDataContext();
         }
         // GET: Rooms
         public ActionResult Index()
         {
-            return View(db.Rooms);
+            return View(db.rooms);
         }
 
         // GET: Rooms/Details/5
         public ActionResult Details(int id)
         {
             
-            return View(db.Rooms.SingleOrDefault(r => r.Id == id));
+            return View(db.rooms.SingleOrDefault(r => r.id == id));
         }
 
         // GET: Rooms/Create
@@ -41,7 +41,6 @@ namespace DoctorForums.Controllers
             try
             {
                 // TODO: Add insert logic here
-
                 return RedirectToAction("Index");
             }
             catch
