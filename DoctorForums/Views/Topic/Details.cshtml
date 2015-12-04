@@ -1,0 +1,93 @@
+﻿@model DoctorForums.DAO.message_thread
+
+@{
+    var _User = Session["User"] as DoctorForums.DAO.user;
+}
+
+@section meta {
+    <title>@Model.title</title>
+}
+
+<div class="topic">
+    <h1>@Model.title</h1>
+
+    <a href="@Url.Action("Details", "Rooms", new { id = Model.room_id })">Back to room</a>
+
+    <ul class="uk-comment-list">
+        @foreach (var message in Model.message_tables)
+        {
+            <li>
+                <article class="uk-comment" id="reply-@message.id">
+                    <header class="uk-comment-header">
+                        <img class="uk-comment-avatar" src="http://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar" alt="">
+                        <h4 class="uk-comment-title">
+                            <a href="{{url_for('user_profile', user_id=msg['author']['id'])}}"
+                               class="uk-link-muted">
+                                @message.user.full_name
+                            </a>
+                        </h4>
+                        <div class="uk-comment-meta">
+                            <a href="#reply-@message.id" class="uk-link-muted">
+                                Created at @message.created_at
+                            </a>
+                        </div>
+                    </header>
+
+                    <div class="uk-comment-body">
+                        @message.content
+                    </div>
+                </article>
+            </li>
+        }
+    </ul>
+
+    <form name="comment-form"
+          action="@Url.Action("CreateMessage", "Topic")"
+          method="POST"
+          class="uk-form">
+        <input type="hidden" name="topic_id" value="@Model.id">
+
+        <fieldset>
+            <legend>Respond to this topic</legend>
+
+            <div class="uk-form-row">
+                <textarea name="content" cols="30" rows="10"
+                @{if (_User == null)
+                    {
+                        <text>disabled placeholder="Please login to post messages."</text>
+                    }
+                    else
+                    {
+                        <text>placeholder="Type your response here..."</text>
+                    } }></textarea>
+            </div>
+
+            <div class="uk-form-row">
+                <button type="submit"
+                        value="Reply"
+                        class="uk-button uk-button-primary"
+                        @{ if (_User == null) { <text>disabled</text> } }>
+                    Reply
+                </button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+@section scripts
+{
+    <script src="/Scripts/validate.js"></script>
+    <script>
+        var validator = new FormValidator('comment-form', [{
+            name: 'content',
+            rules: 'required|min_length[10]'
+        }], function onValidation(errors, event) {
+            $(".field-error").remove();
+
+            errors.forEach(function (error) {
+                $(error.element)
+                .after("<p class='field-error uk-form-help-block uk-text-danger'>" + error.message + "</p>");
+            });
+        });
+    </script>
+}

@@ -1,5 +1,5 @@
 ﻿@{ 
-    var _User = Session["User"] as DoctorForums.Models.User;
+    var _User = Session["User"] as DoctorForums.DAO.user;
 }
 
 <!DOCTYPE html>
@@ -41,7 +41,7 @@
                 <a href="{{url_for('user_profile', user_id=session.user_id)}}"
                    class="uk-margin-small-right uk-link-muted">
                     <img src="http://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar" alt="avatar" class="uk-border-rounded" style="height: 25px;">
-                    @_User.FullName
+                    @_User.full_name
                 </a>
 
                 <form action="@Url.Action("Logout", "User")"

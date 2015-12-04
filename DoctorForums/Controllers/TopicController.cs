@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoctorForums.DAO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,13 @@ namespace DoctorForums.Controllers
 {
     public class TopicController : Controller
     {
+        private MainDataClassDataContext db;
+
+        public TopicController()
+        {
+            this.db = new MainDataClassDataContext();
+        }
+
         // GET: Topic
         public ActionResult Index()
         {
@@ -17,7 +25,8 @@ namespace DoctorForums.Controllers
         // GET: Topic/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var topic = this.db.message_threads.SingleOrDefault(t => t.id == id);
+            return View(topic);
         }
 
         // GET: Topic/Create
@@ -38,6 +47,34 @@ namespace DoctorForums.Controllers
             }
             catch
             {
+                return View();
+            }
+        }
+
+        [HttpPost]
+        public ActionResult CreateMessage(FormCollection collection)
+        {
+            try
+            {
+                var content = collection["content"];
+                var topicId = int.Parse(collection["topic_id"]);
+
+                // FIXME: Do some validation here
+                var message = new DAO.message_table
+                {
+                    content = content,
+                    creator_id = (Session["User"] as DAO.user).id,
+                    thread_id = topicId
+                };
+
+                db.message_tables.InsertOnSubmit(message);
+                db.SubmitChanges();
+
+                return RedirectToAction("Details", new { id = topicId });
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e);
                 return View();
             }
         }

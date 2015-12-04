@@ -32,7 +32,7 @@ namespace DoctorForums.Controllers
                     FormsAuthentication.SetAuthCookie(user.UserName, user.RememberMe);
                     var dbContext = new DAO.MainDataClassDataContext();
 
-                    var sessionUser = from u in dbContext.users where u.email == user.UserName select new Models.User { UserName = u.email, FullName = u.full_name };
+                    var sessionUser = from u in dbContext.users where u.email == user.UserName select u;
                     Session["User"] = sessionUser.SingleOrDefault();
 
                     return RedirectToAction("Index", "Home");
