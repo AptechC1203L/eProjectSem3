@@ -34,7 +34,7 @@
         <classShapeMoniker Id="46b9f841-7b5a-4a7b-9f99-24ed3ef4cf25" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.875 : 3.25); (4.875 : 2.4631982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.46875 : 3.25); (5.46875 : 2.4631982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/MainDataClassDataContext/user/user_message_table" />
       <nodes>
         <classShapeMoniker Id="d29c495c-a5cb-44c2-bb25-d5719a84f3f4" />

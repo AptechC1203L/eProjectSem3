@@ -18,7 +18,14 @@ namespace DoctorForums.Controllers
         // GET: Rooms
         public ActionResult Index()
         {
-            return View(db.rooms);
+            var rooms = 
+                from r in this.db.rooms
+                select new Room {
+                    Name = r.name,
+                    Description = r.description,
+                    Topics = r.message_threads.Select(topic => new Topic { Title = topic.title })
+                };
+            return View(rooms);
         }
 
         // GET: Rooms/Details/5
