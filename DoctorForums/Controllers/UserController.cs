@@ -30,6 +30,7 @@ namespace DoctorForums.Controllers
                 if (user.IsValid(user.UserName, user.Password))
                 {
                     FormsAuthentication.SetAuthCookie(user.UserName, user.RememberMe);
+                    Session["User"] = user;
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -42,6 +43,7 @@ namespace DoctorForums.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
+            Session.Remove("User");
             return RedirectToAction("Index", "Home");
         }
 	}

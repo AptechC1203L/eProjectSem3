@@ -1,24 +1,31 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+	overflow-y: scroll;
+
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.site-container {
+	padding-top: 2em;
+	padding-bottom: 2em;
+	flex-grow: 1;
+	width: 100%;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+.site-container > *:not(:first-child) {
+	margin-left: 2em;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.topic {
+	/*max-width: 600px;*/
+}
+
+footer {
+	padding: 1em;
+}
+
+
+.login-dialog {
+	max-width: 300px;
 }

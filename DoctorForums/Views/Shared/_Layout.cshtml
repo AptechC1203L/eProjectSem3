@@ -1,36 +1,116 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/uikit.almost-flat.css" rel="stylesheet" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <meta charset="UTF-8">
+    @if (IsSectionDefined("meta"))
+    {
+        @RenderSection("meta")
+    }
+    else
+    {
+        <title>Doctor Forums</title>
+    }
+
+    <link rel="icon"
+          type="image/png"
+          href="/static/favicon.png">
+    <link href="~/Content/uikit.gradient.css" rel="stylesheet" />
+    <link href="~/Content/components/form-password.gradient.min.css" rel="stylesheet" />
+    <link href="~/Content/components/accordion.gradient.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/vendor/uikit/css/uikit.gradient.css">
+    <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
+
 <body>
-    <div style="width: auto; background-color: #728ea7;">
-        @if (Request.IsAuthenticated)
-        {
-            <strong>@Html.Encode(User.Identity.Name)</strong>
-            @Html.ActionLink("Sign Out", "Logout", "User")
-        }
-        else
-        {
-            @Html.ActionLink("Register", "Register", "User")
-            <span> | </span>
-            @Html.ActionLink("Sign In", "Login", "User")
-        }
-    </div> 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+    <nav class="uk-navbar uk-navbar-attached">
+        <div class="uk-container uk-container-center">
+            <a href="/" class="uk-navbar-brand">
+                <i class="uk-icon-plus uk-text-danger uk-margin-small-right"></i>Doctor Forums
+            </a>
+
+            <div class="uk-navbar-content uk-text-muted uk-text-small">
+                {{g.login_count}} / {{g.total_users}} doctors online
+            </div>
+            
+            <div class="uk-navbar-content uk-navbar-flip">
+                @if (Session["User"] != null)
+                {
+                <a href="{{url_for('user_profile', user_id=session.user_id)}}"
+                   class="uk-margin-small-right uk-link-muted">
+                    <img src="{{g.user['avatar']}}" alt="avatar" class="uk-border-rounded" style="height: 25px;">
+                    {{g.user['display_name']}}
+                </a>
+
+                <form action="{{url_for('logout', next=request.path)}}"
+                      method="POST"
+                      class="uk-form uk-margin-remove uk-display-inline-block">
+                    <button class="uk-button uk-button-danger">Logout</button>
+                </form>
+                }
+                else
+                {
+                    <form action="{{url_for('login', next=request.path)}}" method="POST" class="uk-form uk-margin-remove uk-display-inline-block">
+                        <input name="email" type="email" placeholder="your@email.com" required>
+
+                        <div class="uk-form-password">
+                            <input name="password" type="password" placeholder="P@ssw0rd" required>
+                            <a class="uk-form-password-toggle" data-uk-form-password>Show</a>
+                        </div>
+
+                        <button type="submit" class="uk-button uk-button-primary">Login</button>
+                    </form>
+                }
+            </div>
+        </div>
+    </nav>
+
+    <div class="site-container uk-container uk-container-center">
+        <div class="uk-grid" data-uk-grid-margin>
+            <div class="site-nav uk-width-large-1-5 uk-width-small-1-1">
+                <nav class="uk-panel uk-panel-header">
+                    <h3 class="uk-panel-title">Navigation</h3>
+
+                    <ul class="uk-nav uk-nav-side uk-nav-parent-icon" data-uk-nav>
+                        <li class="{% if g.nav.in_forums_section %}uk-active{% endif %}">
+                            <a href="@Url.Action("Index", "Rooms")"><i class="uk-icon-comments-o"></i> Forums</a>
+                        </li>
+
+                        <li class="{% if g.nav.in_user_search_section %}uk-active{% endif %}">
+                            <a href="{{url_for('user_search')}}"><i class="uk-icon-search"></i> Find Doctors</a>
+                        </li>
+
+                        @if (Session["User"] != null)
+                        {
+                            <li class="uk-nav-divider"></li>
+                            <li class="{% if g.nav.in_personal_profile %}uk-active{% endif %}">
+                                <a href="{{url_for('user_profile', user_id=session.user_id)}}">
+                                    <i class="uk-icon-user"></i> Personal Profile
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </nav>
+            </div>
+
+
+            <div class="content uk-width-large-4-5">
+                @RenderBody()
+            </div>
+        </div>
+
     </div>
+
+    <footer class="uk-block uk-block-secondary uk-contrast">
+        <div class="uk-container uk-container-center">
+            FIXME: This is a nice looking footer waiting to be implemented.
+        </div>
+    </footer>
 
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/uikit.js"></script>
+    <script src="~/Scripts/components/form-password.js"></script>
+    <script src="~/Scripts/components/accordion.js"></script>
+
     @RenderSection("scripts", required: false)
 </body>
 </html>
