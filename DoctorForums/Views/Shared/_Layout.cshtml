@@ -40,7 +40,7 @@
                     {{g.user['display_name']}}
                 </a>
 
-                <form action="{{url_for('logout', next=request.path)}}"
+                <form action="@Url.Action("Logout", "User")"
                       method="POST"
                       class="uk-form uk-margin-remove uk-display-inline-block">
                     <button class="uk-button uk-button-danger">Logout</button>
