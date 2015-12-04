@@ -22,8 +22,14 @@ namespace DoctorForums.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult Register()
+        {
+            return View();
+        }
+
         [HttpPost]
-        public ActionResult Login(Models.User user)
+        public ActionResult Login(Models.LoginViewModel user)
         {
             if (ModelState.IsValid)
             {
@@ -31,7 +37,6 @@ namespace DoctorForums.Controllers
                 {
                     FormsAuthentication.SetAuthCookie(user.UserName, user.RememberMe);
                     var dbContext = new DAO.MainDataClassDataContext();
-
                     var sessionUser = from u in dbContext.users where u.email == user.UserName select u;
                     Session["User"] = sessionUser.SingleOrDefault();
 

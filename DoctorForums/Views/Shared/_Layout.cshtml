@@ -1,5 +1,5 @@
-﻿@{ 
-    var _User = Session["User"] as DoctorForums.DAO.user;
+﻿@{
+    var _User = Session["User"] as DoctorForums.Models.LoginViewModel;
 }
 
 <!DOCTYPE html>
@@ -34,21 +34,20 @@
             <div class="uk-navbar-content uk-text-muted uk-text-small">
                 {{g.login_count}} / {{g.total_users}} doctors online
             </div>
-
             <div class="uk-navbar-content uk-navbar-flip">
                 @if (_User != null)
                 {
-                <a href="{{url_for('user_profile', user_id=session.user_id)}}"
-                   class="uk-margin-small-right uk-link-muted">
-                    <img src="http://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar" alt="avatar" class="uk-border-rounded" style="height: 25px;">
-                    @_User.full_name
-                </a>
+                    <a href="{{url_for('user_profile', user_id=session.user_id)}}"
+                       class="uk-margin-small-right uk-link-muted">
+                        <img src="http://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar" alt="avatar" class="uk-border-rounded" style="height: 25px;">
+                        @_User.FullName
+                    </a>
 
-                <form action="@Url.Action("Logout", "User")"
-                      method="POST"
-                      class="uk-form uk-margin-remove uk-display-inline-block">
-                    <button class="uk-button uk-button-danger">Logout</button>
-                </form>
+                    <form action="@Url.Action("Logout", "User")"
+                          method="POST"
+                          class="uk-form uk-margin-remove uk-display-inline-block">
+                        <button class="uk-button uk-button-danger">Logout</button>
+                    </form>
                 }
                 else
                 {
