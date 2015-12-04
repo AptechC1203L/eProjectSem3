@@ -33,7 +33,7 @@ namespace DoctorForums.Models
         {
             MainDataClassDataContext db = new MainDataClassDataContext();
             var user = from u in db.users where u.email == _username select u.hash_password;
-            String password = user.Single();
+            String password = user.SingleOrDefault();
             if (password.CompareTo(_password) == 1)
             {
                 return true;
@@ -42,6 +42,7 @@ namespace DoctorForums.Models
             {
                 return false;
             }
+        
         }
     }
 }
