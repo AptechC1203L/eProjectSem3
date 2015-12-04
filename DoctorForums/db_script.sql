@@ -15,6 +15,10 @@ create table users(
 	tel varchar(20),
 	hash_password text,
 	role_name varchar(10),
+	speciality text,
+	offical_location text,
+	education text,
+	hospital text,
 	is_private bit
 )
 
@@ -52,10 +56,10 @@ commit transaction
 --Insert data
 
 insert into users values ('Admin','admin@mail.com', 'Ha Noi', '093876222', '7c222fb2927d828af22f592134e8932480637c0d', 'admin', 1)
-insert into users values ('Doctor No 1','doctorno1@mail.com', 'Da Nang', '093374222', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor', 0)
-insert into users values ('Doctor No 2','doctorno2@mail.com', 'Nghe An', '093374222', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor', 0)
-insert into users values ('Doctor No 3','doctorno3@mail.com', 'Thai Binh', '093374222', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor', 0)
-insert into users values ('Doctor No 4','doctorno4@mail.com', 'TP Ho Chi Minh', '0933742874', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor', 0)
+insert into users values ('Doctor No 1','doctorno1@mail.com', 'Da Nang', '093374222', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor', 'Tam ly hoc', '', '', '', 0)
+insert into users values ('Doctor No 2','doctorno2@mail.com', 'Nghe An', '093374222', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor','' , '', '', '', 0)
+insert into users values ('Doctor No 3','doctorno3@mail.com', 'Thai Binh', '093374222', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor','' , '', '', '', 0)
+insert into users values ('Doctor No 4','doctorno4@mail.com', 'TP Ho Chi Minh', '0933742874', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor','' , '', '', '', 0)
 -- password 12345678 - > sha1
 
 insert into rooms (name, description) values 
