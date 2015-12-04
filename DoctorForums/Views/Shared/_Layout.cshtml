@@ -48,11 +48,11 @@
                 }
                 else
                 {
-                    <form action="{{url_for('login', next=request.path)}}" method="POST" class="uk-form uk-margin-remove uk-display-inline-block">
-                        <input name="email" type="email" placeholder="your@email.com" required>
+                    <form action="@Url.Action("Login", "User")" method="POST" class="uk-form uk-margin-remove uk-display-inline-block">
+                        <input name="UserName" type="email" placeholder="your@email.com" required>
 
                         <div class="uk-form-password">
-                            <input name="password" type="password" placeholder="P@ssw0rd" required>
+                            <input name="Password" type="password" placeholder="P@ssw0rd" required>
                             <a class="uk-form-password-toggle" data-uk-form-password>Show</a>
                         </div>
 
