@@ -271,12 +271,14 @@
     <Content Include="Content\components\upload.gradient.css" />
     <Content Include="Content\components\upload.gradient.min.css" />
     <Content Include="Content\components\upload.min.css" />
+    <Content Include="Content\favicon.png" />
     <Content Include="Content\uikit.almost-flat.css" />
     <Content Include="Content\uikit.almost-flat.min.css" />
     <Content Include="Content\uikit.css" />
     <Content Include="Content\uikit.gradient.css" />
     <Content Include="Content\uikit.gradient.min.css" />
     <Content Include="Content\uikit.min.css" />
+    <Content Include="db_script.sql" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -291,6 +293,7 @@
       <SubType>Designer</SubType>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="schema.sql" />
     <Content Include="Scripts\components\accordion.js" />
     <Content Include="Scripts\components\accordion.min.js" />
     <Content Include="Scripts\components\autocomplete.js" />
