@@ -22,7 +22,7 @@ namespace DoctorForums.DAO
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="doctor_web_forum")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Haha")]
 	public partial class MainDataClassDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -937,7 +937,7 @@ namespace DoctorForums.DAO
 		
 		private System.Nullable<System.DateTime> _created_at;
 		
-		private System.Nullable<int> _number_of_thread;
+		private string _description;
 		
 		private EntitySet<message_thread> _message_threads;
 		
@@ -951,8 +951,8 @@ namespace DoctorForums.DAO
     partial void OnnameChanged();
     partial void Oncreated_atChanging(System.Nullable<System.DateTime> value);
     partial void Oncreated_atChanged();
-    partial void Onnumber_of_threadChanging(System.Nullable<int> value);
-    partial void Onnumber_of_threadChanged();
+    partial void OndescriptionChanging(string value);
+    partial void OndescriptionChanged();
     #endregion
 		
 		public room()
@@ -1021,22 +1021,22 @@ namespace DoctorForums.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_number_of_thread", DbType="Int")]
-		public System.Nullable<int> number_of_thread
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", CanBeNull=false)]
+		public string description
 		{
 			get
 			{
-				return this._number_of_thread;
+				return this._description;
 			}
 			set
 			{
-				if ((this._number_of_thread != value))
+				if ((this._description != value))
 				{
-					this.Onnumber_of_threadChanging(value);
+					this.OndescriptionChanging(value);
 					this.SendPropertyChanging();
-					this._number_of_thread = value;
-					this.SendPropertyChanged("number_of_thread");
-					this.Onnumber_of_threadChanged();
+					this._description = value;
+					this.SendPropertyChanged("description");
+					this.OndescriptionChanged();
 				}
 			}
 		}

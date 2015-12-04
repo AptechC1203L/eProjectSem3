@@ -1,4 +1,7 @@
 ﻿use master
+go
+drop database doctor_web_forum
+go
 create database doctor_web_forum
 go
 use doctor_web_forum
@@ -26,8 +29,8 @@ create table message_threads(
 create table rooms(
 	id integer identity primary key,
 	name ntext,
-	created_at datetime,
-	number_of_thread integer
+	description ntext,
+	created_at datetime default getutcdate()
 )
 
 create table message_table(
@@ -36,7 +39,7 @@ create table message_table(
 	creator_id integer,
 	content ntext,
 	thread_id integer,
-	created_at datetime
+	created_at datetime default getutcdate()
 )
 
 alter table message_threads add constraint msg_thread_room foreign key (room_id) references rooms(id)
@@ -55,9 +58,10 @@ insert into users values ('Doctor No 3','doctorno3@mail.com', 'Thai Binh', '0933
 insert into users values ('Doctor No 4','doctorno4@mail.com', 'TP Ho Chi Minh', '0933742874', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor', 0)
 -- password 12345678 - > sha1
 
-insert into rooms values ('Benh tim mach', '', 5)
-insert into rooms values ('Bệnh lão khoa', '', 5)
-insert into rooms values ('Khoa hô hấp', '', 4)
+insert into rooms (name, description) values 
+	('Benh tim mach', 'hahahahahahahnt'),
+	('Bệnh lão khoa', 'lololol'),
+	('Khoa hô hấp', 'noice noice noice');
 
 insert into message_threads values (1, 2, '', 'Các món ăn tốt cho người bệnh tim mạch')
 insert into message_threads values (1, 2, '', 'Dấu hiệu nhận biết sớm bệnh tim mạch')
