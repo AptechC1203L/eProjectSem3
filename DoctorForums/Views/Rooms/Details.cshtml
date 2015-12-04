@@ -1,0 +1,114 @@
+﻿@model DoctorForums.DAO.room
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+
+<div class="uk-panel uk-panel-header">
+    <h3 class="uk-panel-title">
+        <i class="uk-icon-{{room['icon']}}"></i>
+        @Model.name
+    </h3>
+
+    <a href="@Url.Action("Index", "Rooms")">Back to room list.</a>
+
+    <p class="uk-text-muted">@Model.description</p>
+
+    @*<button class="uk-button uk-button-primary"
+            data-uk-modal="{target: '#new-topic-modal', bgclose:false}"
+            {% if not session['user_id'] %}
+            disabled title="Please login to create topics."
+            {% endif %}>
+        <i class="uk-icon-plus-circle"></i> Create Topic
+    </button>*@
+
+    <div id="new-topic-modal" class="uk-modal">
+        <form name="new-topic-form"
+              class="uk-form"
+              action=""
+              method="POST">
+            <div class="uk-modal-dialog">
+                <a class="uk-modal-close uk-close"></a>
+
+                <div class="uk-modal-header">
+                    <h2>New Topic</h2>
+                </div>
+
+                <input type="hidden" name="RoomId" value="@Model.id">
+                <div class="uk-form-row">
+                    <input name="subject" type="text" placeholder="Subject">
+                </div>
+
+                <div class="uk-form-row">
+                    <textarea name="content"
+                              cols="30"
+                              rows="10"></textarea>
+                </div>
+
+                <div class="uk-modal-footer uk-text-right">
+                    <button type="submit" value="Send" class="uk-button uk-button-primary">
+                        Send
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <table class="uk-table uk-table-striped">
+        <thead>
+            <tr>
+                <th>Topic</th>
+                <th>Poster</th>
+                <th>Posts</th>
+                <th>Created</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var thread in Model.message_threads)
+            {
+                <tr>
+                    <td>
+                        <a href="@Url.Action("Details", "Topic", new { id = thread.id })" class="uk-link-muted">
+                            @thread.title
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{url_for('user_profile', user_id=topic['author']['id'])}}"
+                           class="uk-link-muted">
+                            <img src="http://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar" alt="avatar" class="uk-border-rounded" style="height: 25px;"> @thread.user.full_name
+                        </a>
+                    </td>
+                    <td class="uk-text-muted">@thread.message_tables.Count()</td>
+                    <td class="uk-text-muted">@thread.created_at</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@section scripts 
+{
+<script src="/Scripts/validate.js"></script>
+<script>
+    var validator = new FormValidator('new-topic-form', [
+    {
+        name: 'subject',
+        rules: 'required|min_length[10]'
+    },
+    {
+        name: 'content',
+        rules: 'required|min_length[10]'
+    },
+    ], function(errors, event) {
+        $(".field-error").remove();
+
+        errors.forEach(function (error) {
+            $(error.element)
+            .after("<p class='field-error uk-form-help-block uk-text-danger'>" + error.message + "</p>");
+        });
+    });
+</script>
+}

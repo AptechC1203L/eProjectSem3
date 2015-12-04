@@ -141,7 +141,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\SHA1.cs" />
-    <Compile Include="Models\Room.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -383,6 +382,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\uikit.js" />
     <Content Include="Scripts\uikit.min.js" />
+    <Content Include="Scripts\validate.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -400,6 +400,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\Rooms\Index.cshtml" />
+    <Content Include="Views\Rooms\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

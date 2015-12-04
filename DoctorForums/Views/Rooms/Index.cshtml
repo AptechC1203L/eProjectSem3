@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DoctorForums.Models.Room>
+﻿@model IEnumerable<DoctorForums.DAO.room>
 
 <div>
     <div class="uk-block uk-block-muted uk-margin-large-bottom">
@@ -15,11 +15,11 @@
         <div class="uk-panel uk-panel-header uk-margin-large-bottom">
             <h3 class="uk-panel-title">
                 <i class="uk-icon-{{room['icon']}}"></i>
-                <a href="{{url_for('.room_detail', room_id=room['id'])}}" class="uk-link-muted">@room.Name</a>
-                <div class="uk-badge">@room.Topics.Count() topics</div>
+                <a href="@Url.Action("Details", "Rooms", new { id = room.id })" class="uk-link-muted">@room.name</a>
+                <span class="uk-badge">@room.message_threads.Count() topics</span>
             </h3>
 
-            <p class="uk-text-muted">@room.Description</p>
+            <p class="uk-text-muted">@room.description</p>
         </div>
     }
 </div>
