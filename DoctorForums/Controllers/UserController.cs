@@ -44,7 +44,7 @@ namespace DoctorForums.Controllers
                     //Fix me!
                     System.Web.HttpContext.Current.Session["token"] = sessionUser.SingleOrDefault().hash_password;
                     
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Rooms");
                 }
                 else
                 {
@@ -72,15 +72,17 @@ namespace DoctorForums.Controllers
                 db.SubmitChanges();
 
                 ViewBag.Message = "Welcome! you can login and post question now";
-                return View("~/Views/Home/Index.cshtml");
+                return RedirectToAction("Index", "Rooms");
             }
+
             return View(user);
         }
+
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
             System.Web.HttpContext.Current.Session.Remove("user_name");
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Rooms");
         }
 	}
 }
