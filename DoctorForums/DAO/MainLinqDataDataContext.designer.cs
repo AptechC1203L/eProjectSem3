@@ -42,6 +42,9 @@ namespace DoctorForums.DAO
     partial void Insertroom(room instance);
     partial void Updateroom(room instance);
     partial void Deleteroom(room instance);
+    partial void Insertmoderation(moderation instance);
+    partial void Updatemoderation(moderation instance);
+    partial void Deletemoderation(moderation instance);
     #endregion
 		
 		public MainDataClassDataContext() : 
@@ -105,6 +108,14 @@ namespace DoctorForums.DAO
 				return this.GetTable<room>();
 			}
 		}
+		
+		public System.Data.Linq.Table<moderation> moderations
+		{
+			get
+			{
+				return this.GetTable<moderation>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.users")]
@@ -133,6 +144,8 @@ namespace DoctorForums.DAO
 		
 		private EntitySet<message_table> _message_tables;
 		
+		private EntitySet<moderation> _moderations;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -159,6 +172,7 @@ namespace DoctorForums.DAO
 		{
 			this._message_threads = new EntitySet<message_thread>(new Action<message_thread>(this.attach_message_threads), new Action<message_thread>(this.detach_message_threads));
 			this._message_tables = new EntitySet<message_table>(new Action<message_table>(this.attach_message_tables), new Action<message_table>(this.detach_message_tables));
+			this._moderations = new EntitySet<moderation>(new Action<moderation>(this.attach_moderations), new Action<moderation>(this.detach_moderations));
 			OnCreated();
 		}
 		
@@ -348,6 +362,19 @@ namespace DoctorForums.DAO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_moderation", Storage="_moderations", ThisKey="id", OtherKey="user_id")]
+		public EntitySet<moderation> moderations
+		{
+			get
+			{
+				return this._moderations;
+			}
+			set
+			{
+				this._moderations.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -387,6 +414,18 @@ namespace DoctorForums.DAO
 		}
 		
 		private void detach_message_tables(message_table entity)
+		{
+			this.SendPropertyChanging();
+			entity.user = null;
+		}
+		
+		private void attach_moderations(moderation entity)
+		{
+			this.SendPropertyChanging();
+			entity.user = this;
+		}
+		
+		private void detach_moderations(moderation entity)
 		{
 			this.SendPropertyChanging();
 			entity.user = null;
@@ -941,6 +980,8 @@ namespace DoctorForums.DAO
 		
 		private EntitySet<message_thread> _message_threads;
 		
+		private EntitySet<moderation> _moderations;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -958,6 +999,7 @@ namespace DoctorForums.DAO
 		public room()
 		{
 			this._message_threads = new EntitySet<message_thread>(new Action<message_thread>(this.attach_message_threads), new Action<message_thread>(this.detach_message_threads));
+			this._moderations = new EntitySet<moderation>(new Action<moderation>(this.attach_moderations), new Action<moderation>(this.detach_moderations));
 			OnCreated();
 		}
 		
@@ -1054,6 +1096,19 @@ namespace DoctorForums.DAO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="room_moderation", Storage="_moderations", ThisKey="id", OtherKey="room_id")]
+		public EntitySet<moderation> moderations
+		{
+			get
+			{
+				return this._moderations;
+			}
+			set
+			{
+				this._moderations.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1084,6 +1139,210 @@ namespace DoctorForums.DAO
 		{
 			this.SendPropertyChanging();
 			entity.room = null;
+		}
+		
+		private void attach_moderations(moderation entity)
+		{
+			this.SendPropertyChanging();
+			entity.room = this;
+		}
+		
+		private void detach_moderations(moderation entity)
+		{
+			this.SendPropertyChanging();
+			entity.room = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.moderations")]
+	public partial class moderation : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private System.Nullable<int> _user_id;
+		
+		private System.Nullable<int> _room_id;
+		
+		private EntityRef<room> _room;
+		
+		private EntityRef<user> _user;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Onuser_idChanging(System.Nullable<int> value);
+    partial void Onuser_idChanged();
+    partial void Onroom_idChanging(System.Nullable<int> value);
+    partial void Onroom_idChanged();
+    #endregion
+		
+		public moderation()
+		{
+			this._room = default(EntityRef<room>);
+			this._user = default(EntityRef<user>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_id", DbType="Int")]
+		public System.Nullable<int> user_id
+		{
+			get
+			{
+				return this._user_id;
+			}
+			set
+			{
+				if ((this._user_id != value))
+				{
+					if (this._user.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onuser_idChanging(value);
+					this.SendPropertyChanging();
+					this._user_id = value;
+					this.SendPropertyChanged("user_id");
+					this.Onuser_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_room_id", DbType="Int")]
+		public System.Nullable<int> room_id
+		{
+			get
+			{
+				return this._room_id;
+			}
+			set
+			{
+				if ((this._room_id != value))
+				{
+					if (this._room.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onroom_idChanging(value);
+					this.SendPropertyChanging();
+					this._room_id = value;
+					this.SendPropertyChanged("room_id");
+					this.Onroom_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="room_moderation", Storage="_room", ThisKey="room_id", OtherKey="id", IsForeignKey=true)]
+		public room room
+		{
+			get
+			{
+				return this._room.Entity;
+			}
+			set
+			{
+				room previousValue = this._room.Entity;
+				if (((previousValue != value) 
+							|| (this._room.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._room.Entity = null;
+						previousValue.moderations.Remove(this);
+					}
+					this._room.Entity = value;
+					if ((value != null))
+					{
+						value.moderations.Add(this);
+						this._room_id = value.id;
+					}
+					else
+					{
+						this._room_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("room");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_moderation", Storage="_user", ThisKey="user_id", OtherKey="id", IsForeignKey=true)]
+		public user user
+		{
+			get
+			{
+				return this._user.Entity;
+			}
+			set
+			{
+				user previousValue = this._user.Entity;
+				if (((previousValue != value) 
+							|| (this._user.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._user.Entity = null;
+						previousValue.moderations.Remove(this);
+					}
+					this._user.Entity = value;
+					if ((value != null))
+					{
+						value.moderations.Add(this);
+						this._user_id = value.id;
+					}
+					else
+					{
+						this._user_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("user");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

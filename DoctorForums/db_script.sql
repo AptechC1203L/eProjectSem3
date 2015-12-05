@@ -30,11 +30,19 @@ create table message_threads(
 	title ntext
 )
 
+
 create table rooms(
 	id integer identity primary key,
 	name ntext,
 	description ntext,
 	created_at datetime not null default getutcdate()
+)
+
+create table moderations (
+	id integer identity primary key,
+	user_id integer references users (id),
+	room_id integer references rooms (id),
+	constraint unique_user_and_room_pair unique (user_id, room_id)
 )
 
 create table message_table(
@@ -74,3 +82,6 @@ insert into message_threads values (1, 2, '', 'Bệnh tim mạch nên kiêng gì
 insert into message_threads values (2, 3, '', 'Món ăn tốt cho người cao tuổi')
 insert into message_threads values (2, 3, '', 'Nguy cơ tai biến ở người cao tuổi')
 insert into message_threads values (2, 3, '', 'Người cao tuổi và cuộc sống')
+
+
+insert into moderations (user_id, room_id) values (1, 1);
