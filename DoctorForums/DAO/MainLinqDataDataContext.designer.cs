@@ -45,6 +45,9 @@ namespace DoctorForums.DAO
     partial void Insertmoderation(moderation instance);
     partial void Updatemoderation(moderation instance);
     partial void Deletemoderation(moderation instance);
+    partial void Insertnotification(notification instance);
+    partial void Updatenotification(notification instance);
+    partial void Deletenotification(notification instance);
     #endregion
 		
 		public MainDataClassDataContext() : 
@@ -116,6 +119,14 @@ namespace DoctorForums.DAO
 				return this.GetTable<moderation>();
 			}
 		}
+		
+		public System.Data.Linq.Table<notification> notifications
+		{
+			get
+			{
+				return this.GetTable<notification>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.users")]
@@ -146,6 +157,8 @@ namespace DoctorForums.DAO
 		
 		private EntitySet<moderation> _moderations;
 		
+		private EntitySet<notification> _notifications;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -173,6 +186,7 @@ namespace DoctorForums.DAO
 			this._message_threads = new EntitySet<message_thread>(new Action<message_thread>(this.attach_message_threads), new Action<message_thread>(this.detach_message_threads));
 			this._message_tables = new EntitySet<message_table>(new Action<message_table>(this.attach_message_tables), new Action<message_table>(this.detach_message_tables));
 			this._moderations = new EntitySet<moderation>(new Action<moderation>(this.attach_moderations), new Action<moderation>(this.detach_moderations));
+			this._notifications = new EntitySet<notification>(new Action<notification>(this.attach_notifications), new Action<notification>(this.detach_notifications));
 			OnCreated();
 		}
 		
@@ -375,6 +389,19 @@ namespace DoctorForums.DAO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_notification", Storage="_notifications", ThisKey="id", OtherKey="user_id")]
+		public EntitySet<notification> notifications
+		{
+			get
+			{
+				return this._notifications;
+			}
+			set
+			{
+				this._notifications.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -426,6 +453,18 @@ namespace DoctorForums.DAO
 		}
 		
 		private void detach_moderations(moderation entity)
+		{
+			this.SendPropertyChanging();
+			entity.user = null;
+		}
+		
+		private void attach_notifications(notification entity)
+		{
+			this.SendPropertyChanging();
+			entity.user = this;
+		}
+		
+		private void detach_notifications(notification entity)
 		{
 			this.SendPropertyChanging();
 			entity.user = null;
@@ -1314,6 +1353,229 @@ namespace DoctorForums.DAO
 					if ((value != null))
 					{
 						value.moderations.Add(this);
+						this._user_id = value.id;
+					}
+					else
+					{
+						this._user_id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("user");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.notifications")]
+	public partial class notification : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private System.Nullable<int> _user_id;
+		
+		private string _content;
+		
+		private string _url;
+		
+		private System.DateTime _created_at;
+		
+		private System.Nullable<bool> _is_read;
+		
+		private EntityRef<user> _user;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Onuser_idChanging(System.Nullable<int> value);
+    partial void Onuser_idChanged();
+    partial void OncontentChanging(string value);
+    partial void OncontentChanged();
+    partial void OnurlChanging(string value);
+    partial void OnurlChanged();
+    partial void Oncreated_atChanging(System.DateTime value);
+    partial void Oncreated_atChanged();
+    partial void Onis_readChanging(System.Nullable<bool> value);
+    partial void Onis_readChanged();
+    #endregion
+		
+		public notification()
+		{
+			this._user = default(EntityRef<user>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_id", DbType="Int")]
+		public System.Nullable<int> user_id
+		{
+			get
+			{
+				return this._user_id;
+			}
+			set
+			{
+				if ((this._user_id != value))
+				{
+					if (this._user.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onuser_idChanging(value);
+					this.SendPropertyChanging();
+					this._user_id = value;
+					this.SendPropertyChanged("user_id");
+					this.Onuser_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_content", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+		public string content
+		{
+			get
+			{
+				return this._content;
+			}
+			set
+			{
+				if ((this._content != value))
+				{
+					this.OncontentChanging(value);
+					this.SendPropertyChanging();
+					this._content = value;
+					this.SendPropertyChanged("content");
+					this.OncontentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_url", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+		public string url
+		{
+			get
+			{
+				return this._url;
+			}
+			set
+			{
+				if ((this._url != value))
+				{
+					this.OnurlChanging(value);
+					this.SendPropertyChanging();
+					this._url = value;
+					this.SendPropertyChanged("url");
+					this.OnurlChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_at", DbType="DateTime NOT NULL")]
+		public System.DateTime created_at
+		{
+			get
+			{
+				return this._created_at;
+			}
+			set
+			{
+				if ((this._created_at != value))
+				{
+					this.Oncreated_atChanging(value);
+					this.SendPropertyChanging();
+					this._created_at = value;
+					this.SendPropertyChanged("created_at");
+					this.Oncreated_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_read", DbType="Bit")]
+		public System.Nullable<bool> is_read
+		{
+			get
+			{
+				return this._is_read;
+			}
+			set
+			{
+				if ((this._is_read != value))
+				{
+					this.Onis_readChanging(value);
+					this.SendPropertyChanging();
+					this._is_read = value;
+					this.SendPropertyChanged("is_read");
+					this.Onis_readChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_notification", Storage="_user", ThisKey="user_id", OtherKey="id", IsForeignKey=true)]
+		public user user
+		{
+			get
+			{
+				return this._user.Entity;
+			}
+			set
+			{
+				user previousValue = this._user.Entity;
+				if (((previousValue != value) 
+							|| (this._user.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._user.Entity = null;
+						previousValue.notifications.Remove(this);
+					}
+					this._user.Entity = value;
+					if ((value != null))
+					{
+						value.notifications.Add(this);
 						this._user_id = value.id;
 					}
 					else

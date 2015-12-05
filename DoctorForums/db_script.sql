@@ -54,6 +54,15 @@ create table message_table(
 	created_at datetime not null default getutcdate()
 )
 
+create table notifications (
+	id integer identity primary key,
+	user_id integer references users (id),
+	content ntext,
+	url ntext,
+	created_at datetime not null default getutcdate(),
+	is_read bit default 0
+)
+
 alter table message_threads add constraint msg_thread_room foreign key (room_id) references rooms(id)
 alter table message_threads add constraint msg_thread_user foreign key (creator_id) references users(id)
 alter table message_table add constraint msg_table_thread foreign key (thread_id) references message_threads(id)

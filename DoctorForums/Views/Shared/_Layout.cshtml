@@ -34,22 +34,41 @@
             <div class="uk-navbar-content uk-text-muted uk-text-small">
                 {{g.login_count}} / {{g.total_users}} doctors online
             </div>
-            <div class="uk-navbar-content uk-navbar-flip">
-                @if (_user != null)
-                {
-                    <a href="{{url_for('user_profile', user_id=session.user_id)}}"
-                       class="uk-margin-small-right uk-link-muted">
-                        <img src="http://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar" alt="avatar" class="uk-border-rounded" style="height: 25px;">
-                        @_user.full_name
-                    </a>
-                    <form action="@Url.Action("Logout", "User", new { next = Request.Url.AbsoluteUri })"
-                          method="POST"
-                          class="uk-form uk-margin-remove uk-display-inline-block">
-                        <button class="uk-button uk-button-danger">Logout</button>
-                    </form>
-                }
-                else
-                {
+
+            @if (_user != null)
+            {
+                <div class="uk-button-dropdown uk-navbar-content" data-uk-dropdown="{mode:'click'}">
+                    @{
+                        var unreadNotis = _user.notifications.Where(n => n.is_read == null || n.is_read == false);
+                    }
+
+                    <a class="uk-badge uk-badge-notification"><i class="uk-icon-flag"></i> @unreadNotis.Count()</a>
+                    <div class="uk-dropdown">
+                        <ul class="uk-nav uk-nav-dropdown">
+                            @foreach (var noti in unreadNotis)
+                            {
+                                <li><a href="@Url.Action("ViewNotification", "User", new { id = noti.id })">@noti.content</a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="uk-navbar-content uk-navbar-flip">
+                        <a href="{{url_for('user_profile', user_id=session.user_id)}}"
+                           class="uk-margin-small-right uk-link-muted">
+                            <img src="http://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar" alt="avatar" class="uk-border-rounded" style="height: 25px;">
+                            @_user.full_name
+                        </a>
+                        <form action="@Url.Action("Logout", "User", new { next = Request.Url.AbsoluteUri })"
+                              method="POST"
+                              class="uk-form uk-margin-remove uk-display-inline-block">
+                            <button class="uk-button uk-button-danger">Logout</button>
+                        </form>
+                </div>
+            }
+            else
+            {
+                <div class="uk-navbar-content uk-navbar-flip">
                     <form action="@Url.Action("Login", "User", new { next = Request.Url.AbsoluteUri })" method="POST" class="uk-form uk-margin-remove uk-display-inline-block">
                         <input name="UserName" type="email" placeholder="your@email.com" required>
                         <div class="uk-form-password">
@@ -58,8 +77,9 @@
                         </div>
                         <button type="submit" class="uk-button uk-button-primary">Login</button>
                     </form>
-                }
-            </div>
+                </div>
+            }
+
         </div>
     </nav>
 

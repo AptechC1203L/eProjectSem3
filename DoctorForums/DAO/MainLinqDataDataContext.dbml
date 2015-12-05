@@ -13,6 +13,7 @@
       <Association Name="user_message_thread" Member="message_threads" ThisKey="id" OtherKey="creator_id" Type="message_thread" />
       <Association Name="user_message_table" Member="message_tables" ThisKey="id" OtherKey="creator_id" Type="message_table" />
       <Association Name="user_moderation" Member="moderations" ThisKey="id" OtherKey="user_id" Type="moderation" />
+      <Association Name="user_notification" Member="notifications" ThisKey="id" OtherKey="user_id" Type="notification" />
     </Type>
   </Table>
   <Table Name="dbo.message_threads" Member="message_threads">
@@ -56,6 +57,17 @@
       <Column Name="room_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="room_moderation" Member="room" ThisKey="room_id" OtherKey="id" Type="room" IsForeignKey="true" />
       <Association Name="user_moderation" Member="user" ThisKey="user_id" OtherKey="id" Type="user" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.notifications" Member="notifications">
+    <Type Name="notification">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="user_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="content" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="url" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="created_at" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="is_read" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="user_notification" Member="user" ThisKey="user_id" OtherKey="id" Type="user" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

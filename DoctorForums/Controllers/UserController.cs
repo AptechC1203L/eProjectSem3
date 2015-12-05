@@ -4,12 +4,20 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using DoctorForums.DAO;
 using DoctorForums.Helpers;
 
 namespace DoctorForums.Controllers
 {
     public class UserController : Controller
     {
+        private MainDataClassDataContext dbContext;
+
+        public UserController()
+        {
+            dbContext = new DAO.MainDataClassDataContext();
+        }
+
         //
         // GET: /User/
         public ActionResult Index()
@@ -37,7 +45,6 @@ namespace DoctorForums.Controllers
                 if (user.IsValid(user.UserName, user.Password))
                 {
                     FormsAuthentication.SetAuthCookie(user.UserName, user.RememberMe);
-                    var dbContext = new DAO.MainDataClassDataContext();
                     var sessionUser = from u in dbContext.users where u.email == user.UserName select u;
                     Session["User"] = sessionUser.SingleOrDefault();
 
@@ -87,6 +94,19 @@ namespace DoctorForums.Controllers
                 return Redirect(next);
             else
                 return RedirectToAction("Index", "Rooms");
+        }
+
+        [HttpGet]
+        public ActionResult ViewNotification(int id)
+        {
+            var user = Session["User"] as DAO.user;
+
+            var noti = user.notifications.Where(n => n.id == id).SingleOrDefault();
+            noti.is_read = true;
+
+            dbContext.SubmitChanges();
+
+            return Redirect(noti.url);
         }
 	}
 }

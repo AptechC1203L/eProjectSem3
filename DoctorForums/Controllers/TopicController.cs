@@ -42,6 +42,7 @@ namespace DoctorForums.Controllers
             var subject = collection["subject"];
             var content = collection["content"];
             var roomId = int.Parse(collection["room_id"]);
+            var creator = Session["User"] as DAO.user;
 
             // FIXME: It would have been nicer if we could create both the 
             // topic and the associated message in one transaction.
@@ -60,11 +61,26 @@ namespace DoctorForums.Controllers
             {
                 content = content,
                 thread_id = newTopic.id,
-                creator_id = (Session["User"] as DAO.user).id,
+                creator_id = creator.id,
                 created_at = DateTime.Now
             };
 
+            var notifications = newTopic.room.moderations.Select(m =>
+            {
+                return new DAO.notification
+                {
+                    user_id = m.user_id,
+                    content = String.Format(
+                        "{0} has created a new topic in {1}.",
+                        creator.full_name,
+                        newTopic.room.name),
+                    url = Url.Action("Details", "Topic", new { id = newTopic.id }),
+                    created_at = DateTime.Now
+                };
+            });
+
             db.message_tables.InsertOnSubmit(newMessage);
+            db.notifications.InsertAllOnSubmit(notifications);
             db.SubmitChanges();
 
             return RedirectToAction("Details", new { id = newTopic.id });
