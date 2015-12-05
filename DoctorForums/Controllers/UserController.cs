@@ -39,11 +39,8 @@ namespace DoctorForums.Controllers
                     FormsAuthentication.SetAuthCookie(user.UserName, user.RememberMe);
                     var dbContext = new DAO.MainDataClassDataContext();
                     var sessionUser = from u in dbContext.users where u.email == user.UserName select u;
-                    System.Web.HttpContext.Current.Session["user_name"] = sessionUser.SingleOrDefault().email;
-                    System.Web.HttpContext.Current.Session["user_full_name"] = sessionUser.SingleOrDefault().full_name;
-                    //Fix me!
-                    System.Web.HttpContext.Current.Session["token"] = sessionUser.SingleOrDefault().hash_password;
-                    
+                    Session["User"] = sessionUser.SingleOrDefault();
+
                     return RedirectToAction("Index", "Rooms");
                 }
                 else
@@ -81,7 +78,7 @@ namespace DoctorForums.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
-            System.Web.HttpContext.Current.Session.Remove("user_name");
+            System.Web.HttpContext.Current.Session.Remove("User");
             return RedirectToAction("Index", "Rooms");
         }
 	}
