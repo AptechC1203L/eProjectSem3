@@ -1,0 +1,61 @@
+﻿@model DoctorForums.Models.RegisterViewModel
+
+@{
+    ViewBag.Title = "UserRegister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UserRegister</h2>
+
+@using (Html.BeginForm("Register", "User", FormMethod.Post, new { @class = "uk-form uk-width-medium-1-3" }))
+{
+    @Html.AntiForgeryToken()
+    <fieldset>
+        @Html.ValidationSummary(true)
+        @Html.LabelFor(model => model.UserName, new { @class = "uk-form-label" })        
+        <div class="uk-form-row">
+            @Html.EditorFor(model => model.UserName)
+            @Html.ValidationMessageFor(model => model.UserName)
+        </div>
+
+        <div class="uk-form-row">
+            @Html.LabelFor(model => model.FullName, new { @class = "uk-form-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FullName)
+                @Html.ValidationMessageFor(model => model.FullName)
+            </div>
+        </div>
+
+        <div class="uk-form-row">
+            @Html.LabelFor(model => model.Tel, new { @class = "uk-form-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Tel)
+                @Html.ValidationMessageFor(model => model.Tel)
+            </div>
+        </div>
+
+        <div class="uk-form-row">
+            @Html.LabelFor(model => model.Password, new { @class = "uk-form-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password)
+            </div>
+        </div>
+
+        <div class="uk-form-row">
+            @Html.LabelFor(model => model.ConfirmPassword, new { @class = "uk-form-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ConfirmPassword)
+                @Html.ValidationMessageFor(model => model.ConfirmPassword)
+            </div>
+        </div>
+
+        <div class="uk-form-row">
+            <input type="submit" value="Send" class="uk-button" />
+        </div>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

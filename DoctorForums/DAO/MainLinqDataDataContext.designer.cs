@@ -45,7 +45,7 @@ namespace DoctorForums.DAO
     #endregion
 		
 		public MainDataClassDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["doctor_web_forumConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["doctor_web_forumConnectionString1"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
