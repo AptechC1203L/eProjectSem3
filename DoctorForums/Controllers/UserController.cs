@@ -30,7 +30,7 @@ namespace DoctorForums.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(Models.LoginViewModel user)
+        public ActionResult Login(Models.LoginViewModel user, string next)
         {
             if (ModelState.IsValid)
             {
@@ -41,7 +41,10 @@ namespace DoctorForums.Controllers
                     var sessionUser = from u in dbContext.users where u.email == user.UserName select u;
                     Session["User"] = sessionUser.SingleOrDefault();
 
-                    return RedirectToAction("Index", "Rooms");
+                    if (next != null)
+                        return Redirect(next);
+                    else
+                        return RedirectToAction("Index", "Rooms");
                 }
                 else
                 {
@@ -75,11 +78,15 @@ namespace DoctorForums.Controllers
             return View(user);
         }
 
-        public ActionResult Logout()
+        public ActionResult Logout(string next)
         {
             FormsAuthentication.SignOut();
             System.Web.HttpContext.Current.Session.Remove("User");
-            return RedirectToAction("Index", "Rooms");
+
+            if (next != null)
+                return Redirect(next);
+            else
+                return RedirectToAction("Index", "Rooms");
         }
 	}
 }

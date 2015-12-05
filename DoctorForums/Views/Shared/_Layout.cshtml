@@ -42,7 +42,7 @@
                         <img src="http://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar" alt="avatar" class="uk-border-rounded" style="height: 25px;">
                         @_user.full_name
                     </a>
-                    <form action="@Url.Action("Logout", "User")"
+                    <form action="@Url.Action("Logout", "User", new { next = Request.Url.AbsoluteUri })"
                           method="POST"
                           class="uk-form uk-margin-remove uk-display-inline-block">
                         <button class="uk-button uk-button-danger">Logout</button>
@@ -50,7 +50,7 @@
                 }
                 else
                 {
-                    <form action="@Url.Action("Login", "User")" method="POST" class="uk-form uk-margin-remove uk-display-inline-block">
+                    <form action="@Url.Action("Login", "User", new { next = Request.Url.AbsoluteUri })" method="POST" class="uk-form uk-margin-remove uk-display-inline-block">
                         <input name="UserName" type="email" placeholder="your@email.com" required>
                         <div class="uk-form-password">
                             <input name="Password" type="password" placeholder="P@ssw0rd" required>
