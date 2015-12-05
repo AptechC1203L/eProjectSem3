@@ -39,16 +39,35 @@ namespace DoctorForums.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            var subject = collection["subject"];
+            var content = collection["content"];
+            var roomId = int.Parse(collection["room_id"]);
 
-                return RedirectToAction("Index");
-            }
-            catch
+            // FIXME: It would have been nicer if we could create both the 
+            // topic and the associated message in one transaction.
+            var newTopic = new message_thread
             {
-                return View();
-            }
+                title = subject,
+                creator_id = (Session["User"] as user).id,
+                room_id = roomId,
+                created_at = DateTime.Now
+            };
+
+            db.message_threads.InsertOnSubmit(newTopic);
+            db.SubmitChanges();
+
+            var newMessage = new message_table
+            {
+                content = content,
+                thread_id = newTopic.id,
+                creator_id = (Session["User"] as DAO.user).id,
+                created_at = DateTime.Now
+            };
+
+            db.message_tables.InsertOnSubmit(newMessage);
+            db.SubmitChanges();
+
+            return RedirectToAction("Details", new { id = newTopic.id });
         }
 
         [HttpPost]
@@ -64,7 +83,8 @@ namespace DoctorForums.Controllers
                 {
                     content = content,
                     creator_id = (Session["User"] as DAO.user).id,
-                    thread_id = topicId
+                    thread_id = topicId,
+                    created_at = DateTime.Now
                 };
 
                 db.message_tables.InsertOnSubmit(message);

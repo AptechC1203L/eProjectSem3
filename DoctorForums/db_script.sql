@@ -26,7 +26,7 @@ create table message_threads(
 	id integer identity primary key,
 	room_id integer,
 	creator_id integer,
-	created_at datetime,
+	created_at datetime not null default getutcdate(),
 	title ntext
 )
 
@@ -34,7 +34,7 @@ create table rooms(
 	id integer identity primary key,
 	name ntext,
 	description ntext,
-	created_at datetime default getutcdate()
+	created_at datetime not null default getutcdate()
 )
 
 create table message_table(
@@ -43,7 +43,7 @@ create table message_table(
 	creator_id integer,
 	content ntext,
 	thread_id integer,
-	created_at datetime default getutcdate()
+	created_at datetime not null default getutcdate()
 )
 
 alter table message_threads add constraint msg_thread_room foreign key (room_id) references rooms(id)
@@ -55,11 +55,12 @@ commit transaction
 
 --Insert data
 
-insert into users values ('Admin','admin@mail.com', 'Ha Noi', '093876222', '7c222fb2927d828af22f592134e8932480637c0d', 'admin', 1)
-insert into users values ('Doctor No 1','doctorno1@mail.com', 'Da Nang', '093374222', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor', 'Tam ly hoc', '', '', '', 0)
-insert into users values ('Doctor No 2','doctorno2@mail.com', 'Nghe An', '093374222', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor','' , '', '', '', 0)
-insert into users values ('Doctor No 3','doctorno3@mail.com', 'Thai Binh', '093374222', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor','' , '', '', '', 0)
-insert into users values ('Doctor No 4','doctorno4@mail.com', 'TP Ho Chi Minh', '0933742874', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor','' , '', '', '', 0)
+insert into users (full_name, email, offical_location, tel, hash_password, role_name, is_private) 
+	values ('Admin','admin@mail.com', 'Ha Noi', '093876222', '7c222fb2927d828af22f592134e8932480637c0d', 'admin', 1),
+           ('Doctor No 1','doctorno1@mail.com', 'Da Nang', '093374222', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor', 0),
+           ('Doctor No 2','doctorno2@mail.com', 'Nghe An', '093374222', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor', 0),
+           ('Doctor No 3','doctorno3@mail.com', 'Thai Binh', '093374222', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor', 0),
+           ('Doctor No 4','doctorno4@mail.com', 'TP Ho Chi Minh', '0933742874', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor', 0);
 -- password 12345678 - > sha1
 
 insert into rooms (name, description) values 

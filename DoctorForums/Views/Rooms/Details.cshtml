@@ -15,18 +15,16 @@
 
     <p class="uk-text-muted">@Model.description</p>
 
-    @*<button class="uk-button uk-button-primary"
-            data-uk-modal="{target: '#new-topic-modal', bgclose:false}"
-            {% if not session['user_id'] %}
-            disabled title="Please login to create topics."
-            {% endif %}>
-        <i class="uk-icon-plus-circle"></i> Create Topic
-    </button>*@
+    <button class="uk-button uk-button-primary"
+        data-uk-modal="{target: '#new-topic-modal', bgclose:false}"
+        @{ if (Session["User"] == null) { <text>disabled title = "Please login to create topics."</text>} }> 
+                <i class="uk-icon-plus-circle"></i> Create Topic
+    </button>
 
     <div id="new-topic-modal" class="uk-modal">
         <form name="new-topic-form"
               class="uk-form"
-              action=""
+              action="@Url.Action("Create", "Topic")"
               method="POST">
             <div class="uk-modal-dialog">
                 <a class="uk-modal-close uk-close"></a>
@@ -35,7 +33,7 @@
                     <h2>New Topic</h2>
                 </div>
 
-                <input type="hidden" name="RoomId" value="@Model.id">
+                <input type="hidden" name="room_id" value="@Model.id">
                 <div class="uk-form-row">
                     <input name="subject" type="text" placeholder="Subject">
                 </div>
