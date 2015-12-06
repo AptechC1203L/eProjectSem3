@@ -1,22 +1,40 @@
 ﻿@model DoctorForums.DAO.user
 
+@{ 
+    var sessionUser = Session["User"] as DoctorForums.DAO.user;
+}
+
 <div class="user-profile">
     <div class="uk-block uk-block-muted">
         <div class="uk-container">
             <img src="http://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar" alt="avatar" class="uk-border-rounded">
             <h2>@Model.full_name</h2>
 
-            {% if 'user_id' in session and session.user_id|int == user.id %}
-            Your account is
-            <span class="uk-badge">{% if user.is_public %}public{% else %}private{% endif %}</span>.
+            @if (sessionUser != null && sessionUser.id == Model.id)
+            {
+                <div>
+                    Your account is
+                    <span class="uk-badge">
+                    @if (Model.is_private == true)
+                    {
+                        <text>private</text>
 
-            <form action="" method="POST">
-                <input type="hidden" name="is_public" value="{{not user.is_public}}">
-                <button type="submit" class="uk-button">
-                    Make {% if user.is_public %}Private{% else %}Public{% endif %}
-                </button>
-            </form>
-            {% endif %}
+                    }
+                    else
+                    {
+                        <text>public</text>
+                    }
+
+                    </span>.
+
+                    <form action="@Url.Action("TogglePrivacy", "User")" method="POST">
+                        <input type="hidden" name="isPrivate" value="@Json.Encode(Model.is_private != true)">
+                        <button type="submit" class="uk-button">
+                            Make @(Model.is_private == true ? "public" : "private")
+                        </button>
+                    </form>
+                </div>
+            }
         </div>
     </div>
 

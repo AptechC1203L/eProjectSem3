@@ -20,8 +20,17 @@ namespace DoctorForums.Controllers
 
         public ActionResult Details(int id)
         {
+            // FIXME: Show an error page if no such user is found
+            // FIXME: Show a proper error page if the profile is private
+            var loggedInUser = Session["User"] as DAO.user;
             var user = dbContext.users.SingleOrDefault(u => u.id == id);
-            return View(user);
+            if (user.is_private == true && loggedInUser != null && loggedInUser.id == id)
+            {
+                return View(user);
+            }
+
+            Response.StatusCode = 403;
+            return Content("This user wanted their profile to be private.");
         }
 
         [HttpGet]
@@ -106,6 +115,17 @@ namespace DoctorForums.Controllers
             dbContext.SubmitChanges();
 
             return Redirect(noti.url);
+        }
+
+        [HttpPost]
+        public ActionResult TogglePrivacy(bool isPrivate)
+        {
+            var userId = (Session["User"] as DAO.user).id;
+            var user = dbContext.users.SingleOrDefault(u => u.id == userId);
+            user.is_private = isPrivate;
+            this.dbContext.SubmitChanges();
+
+            return RedirectToAction("Details", new { id = user.id });
         }
 	}
 }
