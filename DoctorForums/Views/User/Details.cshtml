@@ -1,0 +1,45 @@
+﻿@model DoctorForums.DAO.user
+
+<div class="user-profile">
+    <div class="uk-block uk-block-muted">
+        <div class="uk-container">
+            <img src="http://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar" alt="avatar" class="uk-border-rounded">
+            <h2>@Model.full_name</h2>
+
+            {% if 'user_id' in session and session.user_id|int == user.id %}
+            Your account is
+            <span class="uk-badge">{% if user.is_public %}public{% else %}private{% endif %}</span>.
+
+            <form action="" method="POST">
+                <input type="hidden" name="is_public" value="{{not user.is_public}}">
+                <button type="submit" class="uk-button">
+                    Make {% if user.is_public %}Private{% else %}Public{% endif %}
+                </button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+
+    Posts by this user:
+
+    <ul class="uk-list uk-list-space">
+        @foreach (var msg in Model.message_tables)
+        {
+            <li>
+                <article class="uk-comment">
+                    <header class="uk-comment-header">
+                        <img class="uk-comment-avatar" src="http://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar" alt="avatar">
+                        <h4 class="uk-comment-title">
+                            <a href="@Url.Action("Details", "Topic", new { id = msg.thread_id })#reply-@msg.id"
+                               class="uk-link-muted">
+                                @msg.message_thread.title
+                            </a>
+                        </h4>
+                        <div class="uk-comment-meta">...</div>
+                    </header>
+                    <div class="uk-comment-body">@msg.content</div>
+                </article>
+            </li>
+        }
+    </ul>
+</div>

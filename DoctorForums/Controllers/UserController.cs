@@ -18,11 +18,10 @@ namespace DoctorForums.Controllers
             dbContext = new DAO.MainDataClassDataContext();
         }
 
-        //
-        // GET: /User/
-        public ActionResult Index()
+        public ActionResult Details(int id)
         {
-            return View();
+            var user = dbContext.users.SingleOrDefault(u => u.id == id);
+            return View(user);
         }
 
         [HttpGet]

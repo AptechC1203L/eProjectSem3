@@ -80,7 +80,7 @@
                         </a>
                     </td>
                     <td>
-                        <a href="{{url_for('user_profile', user_id=topic['author']['id'])}}"
+                        <a href="@Url.Action("Details", "User", new { id = thread.creator_id })"
                            class="uk-link-muted">
                             <img src="http://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar" alt="avatar" class="uk-border-rounded" style="height: 25px;"> @thread.user.full_name
                         </a>
