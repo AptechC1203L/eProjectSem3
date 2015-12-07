@@ -90,8 +90,11 @@ namespace DoctorForums.Controllers
                 
                 db.SubmitChanges();
 
-                ViewBag.Message = "Welcome! you can login and post question now";
-                return RedirectToAction("Index", "Rooms");
+                ViewBag.Message = "Welcome! you can post question now";
+
+                Session["User"] = newUser;
+               
+                return View("~/Views/Rooms/Index.cshtml", db.rooms);
             }
 
             return View(user);
