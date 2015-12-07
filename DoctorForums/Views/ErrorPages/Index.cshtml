@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/ErrorPages.css" rel="stylesheet" />
+<div class="wrapper row2">
+    <div id="container" class="clear">        
+        <section id="fof" class="clear">          
+            <div class="hgroup">
+                <h1><span><strong>@ViewBag.errorCode</strong></h1>
+                <h2>Error ! <span>@ViewBag.errorMessage</span></h2>
+            </div>         
+        </section>
+    </div>
+</div>
+

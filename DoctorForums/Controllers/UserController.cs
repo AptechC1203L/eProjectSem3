@@ -24,13 +24,17 @@ namespace DoctorForums.Controllers
             // FIXME: Show a proper error page if the profile is private
             var loggedInUser = Session["User"] as DAO.user;
             var user = dbContext.users.SingleOrDefault(u => u.id == id);
-            if (user.is_private == true && loggedInUser != null && loggedInUser.id == id)
+            if (loggedInUser != null && user != null)
             {
                 return View(user);
             }
-
-            Response.StatusCode = 403;
-            return Content("This user wanted their profile to be private.");
+            else
+            {
+                ViewBag.errorCode = "404";
+                ViewBag.errorMessage = "Profile page not found";
+                Response.StatusCode = 404;
+                return View("~/Views/ErrorPages/Index.cshtml");
+            }
         }
 
         [HttpGet]

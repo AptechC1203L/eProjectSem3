@@ -1,31 +1,27 @@
 ﻿@model DoctorForums.DAO.user
 
-@{ 
+@{
     var sessionUser = Session["User"] as DoctorForums.DAO.user;
 }
-
+<link href="~/Content/ProfilePages.css" rel="stylesheet" />
 <div class="user-profile">
     <div class="uk-block uk-block-muted">
         <div class="uk-container">
             <img src="http://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar" alt="avatar" class="uk-border-rounded">
-            <h2>@Model.full_name</h2>
-
             @if (sessionUser != null && sessionUser.id == Model.id)
             {
                 <div>
                     Your account is
                     <span class="uk-badge">
-                    @if (Model.is_private == true)
-                    {
-                        <text>private</text>
-
-                    }
-                    else
-                    {
-                        <text>public</text>
-                    }
-
-                    </span>.
+                        @if (Model.is_private == true)
+                        {
+                            <text>private</text>
+                        }
+                        else
+                        {
+                            <text>public</text>
+                        }
+                    </span>
 
                     <form action="@Url.Action("TogglePrivacy", "User")" method="POST">
                         <input type="hidden" name="isPrivate" value="@Json.Encode(Model.is_private != true)">
@@ -36,10 +32,63 @@
                 </div>
             }
         </div>
+        @if (sessionUser != null && Model.is_private == false)
+        {
+            <div id="doc2" class="yui-t7">
+                <div id="inner">
+                    <div id="hd">
+                        <div class="yui-gc">
+                            <div class="yui-u first">
+                                <h1>@Model.full_name</h1>
+                                <h2>@Model.speciality</h2>
+                            </div>
+                            <div class="yui-u">
+                                <div class="contact-info">
+                                    <h3><a href="mailto:name@yourdomain.com">@Model.email</a></h3>
+                                    <h3>@Model.tel</h3>
+                                </div><!--// .contact-info -->
+                            </div>
+                        </div><!--// .yui-gc -->
+                    </div><!--// hd -->
+                    <div id="bd">
+                        <div id="yui-main">
+                            <div class="yui-b">
+                                <div class="yui-gf">
+                                    <div class="yui-u first">
+                                        <h2>Address:</h2>
+                                    </div>
+                                    <div class="yui-u">
+                                        <p class="enlarge">
+                                            @Model.offical_location
+                                        </p>
+                                    </div>
+                                </div><!--// .yui-gf -->
+                                <div class="yui-gf">
+                                    <div class="yui-u first">
+                                        <h2>Experience</h2>
+                                    </div><!--// .yui-u -->
+                                    <div class="yui-u">
+                                        <div class="job last">
+                                            <h2>@Model.hospital</h2>
+                                            <h3>@Model.speciality</h3>                                            
+                                        </div>
+                                    </div><!--// .yui-u -->
+                                </div><!--// .yui-gf -->
+                                <div class="yui-gf last">
+                                    <div class="yui-u first">
+                                        <h2>Education</h2>
+                                    </div>
+                                    <div class="yui-u">
+                                        <h2>@Model.education</h2>                                        
+                                    </div>
+                                </div><!--// .yui-gf -->
+                            </div><!--// .yui-b -->
+                        </div><!--// yui-main -->
+                    </div><!--// bd -->
+                </div><!-- // inner -->
+            </div><!--// doc -->
+        }
     </div>
-
-    Posts by this user:
-
     <ul class="uk-list uk-list-space">
         @foreach (var msg in Model.message_tables)
         {

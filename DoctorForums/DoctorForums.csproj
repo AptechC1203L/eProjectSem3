@@ -271,7 +271,9 @@
     <Content Include="Content\components\upload.gradient.css" />
     <Content Include="Content\components\upload.gradient.min.css" />
     <Content Include="Content\components\upload.min.css" />
+    <Content Include="Content\ErrorPages.css" />
     <Content Include="Content\favicon.png" />
+    <Content Include="Content\ProfilePages.css" />
     <Content Include="Content\uikit.almost-flat.css" />
     <Content Include="Content\uikit.almost-flat.min.css" />
     <Content Include="Content\uikit.css" />
@@ -401,6 +403,7 @@
     <Content Include="Views\Topic\Details.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\ErrorPages\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
