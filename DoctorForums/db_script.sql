@@ -9,16 +9,16 @@ go
 begin transaction
 create table users(
 	id integer identity primary key,
-	full_name text,
+	full_name ntext,
 	email nvarchar(50),
-	user_address text,
+	user_address ntext,
 	tel varchar(20),
-	hash_password text,
+	hash_password ntext,
 	role_name varchar(10),
-	speciality text,
-	offical_location text,
-	education text,
-	hospital text,
+	speciality ntext,
+	offical_location ntext,
+	education ntext,
+	hospital ntext,
 	is_private bit
 )
 

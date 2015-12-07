@@ -1,5 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Haha" Class="MainDataClassDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=localhost;Initial Catalog=doctor_web_forum;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="doctor_web_forumConnectionString1" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="doctor_web_forum" Class="MainDataClassDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(localdb)\v11.0;Initial Catalog=doctor_web_forum;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="doctor_web_forumConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.rooms" Member="rooms">
+    <Type Name="room">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="description" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="created_at" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="room_message_thread" Member="message_threads" ThisKey="id" OtherKey="room_id" Type="message_thread" />
+      <Association Name="room_moderation" Member="moderations" ThisKey="id" OtherKey="room_id" Type="moderation" />
+    </Type>
+  </Table>
   <Table Name="dbo.users" Member="users">
     <Type Name="user">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -9,54 +19,15 @@
       <Column Name="tel" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="hash_password" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="role_name" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="speciality" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="offical_location" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="education" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="hospital" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="is_private" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="user_notification" Member="notifications" ThisKey="id" OtherKey="user_id" Type="notification" />
       <Association Name="user_message_thread" Member="message_threads" ThisKey="id" OtherKey="creator_id" Type="message_thread" />
       <Association Name="user_message_table" Member="message_tables" ThisKey="id" OtherKey="creator_id" Type="message_table" />
       <Association Name="user_moderation" Member="moderations" ThisKey="id" OtherKey="user_id" Type="moderation" />
-      <Association Name="user_notification" Member="notifications" ThisKey="id" OtherKey="user_id" Type="notification" />
-    </Type>
-  </Table>
-  <Table Name="dbo.message_threads" Member="message_threads">
-    <Type Name="message_thread">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="room_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="creator_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="created_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="title" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="message_thread_message_table" Member="message_tables" ThisKey="id" OtherKey="thread_id" Type="message_table" />
-      <Association Name="user_message_thread" Member="user" ThisKey="creator_id" OtherKey="id" Type="user" IsForeignKey="true" />
-      <Association Name="room_message_thread" Member="room" ThisKey="room_id" OtherKey="id" Type="room" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.message_table" Member="message_tables">
-    <Type Name="message_table">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="parrent_message_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="creator_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="content" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="thread_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="created_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="message_thread_message_table" Member="message_thread" ThisKey="thread_id" OtherKey="id" Type="message_thread" IsForeignKey="true" />
-      <Association Name="user_message_table" Member="user" ThisKey="creator_id" OtherKey="id" Type="user" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.rooms" Member="rooms">
-    <Type Name="room">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="name" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="created_at" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="description" Type="System.String" CanBeNull="false" />
-      <Association Name="room_message_thread" Member="message_threads" ThisKey="id" OtherKey="room_id" Type="message_thread" />
-      <Association Name="room_moderation" Member="moderations" ThisKey="id" OtherKey="room_id" Type="moderation" />
-    </Type>
-  </Table>
-  <Table Name="dbo.moderations" Member="moderations">
-    <Type Name="moderation">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="user_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="room_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="room_moderation" Member="room" ThisKey="room_id" OtherKey="id" Type="room" IsForeignKey="true" />
-      <Association Name="user_moderation" Member="user" ThisKey="user_id" OtherKey="id" Type="user" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.notifications" Member="notifications">
@@ -68,6 +39,39 @@
       <Column Name="created_at" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="is_read" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="user_notification" Member="user" ThisKey="user_id" OtherKey="id" Type="user" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.message_threads" Member="message_threads">
+    <Type Name="message_thread">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="room_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="creator_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="created_at" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="title" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="message_thread_message_table" Member="message_tables" ThisKey="id" OtherKey="thread_id" Type="message_table" />
+      <Association Name="room_message_thread" Member="room" ThisKey="room_id" OtherKey="id" Type="room" IsForeignKey="true" />
+      <Association Name="user_message_thread" Member="user" ThisKey="creator_id" OtherKey="id" Type="user" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.message_table" Member="message_tables">
+    <Type Name="message_table">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="parrent_message_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="creator_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="content" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="thread_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="created_at" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="message_thread_message_table" Member="message_thread" ThisKey="thread_id" OtherKey="id" Type="message_thread" IsForeignKey="true" />
+      <Association Name="user_message_table" Member="user" ThisKey="creator_id" OtherKey="id" Type="user" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.moderations" Member="moderations">
+    <Type Name="moderation">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="user_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="room_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="room_moderation" Member="room" ThisKey="room_id" OtherKey="id" Type="room" IsForeignKey="true" />
+      <Association Name="user_moderation" Member="user" ThisKey="user_id" OtherKey="id" Type="user" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
