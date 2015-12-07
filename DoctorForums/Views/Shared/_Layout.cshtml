@@ -1,7 +1,6 @@
 ﻿@{
     var _user = Session["User"] as DoctorForums.DAO.user;
 }
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,8 +54,8 @@
 
                 <div class="uk-navbar-content uk-navbar-flip">
                         <a href="@Url.Action("Details", "User", new { id = _user.id })"
-                           class="uk-margin-small-right uk-link-muted">
-                            <img src="http://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar" alt="avatar" class="uk-border-rounded" style="height: 25px;">
+                           class="uk-margin-small-right uk-link-muted">                            
+                            @Html.GravatarImage(_user.email, 25)                     
                             @_user.full_name
                         </a>
                         <form action="@Url.Action("Logout", "User", new { next = Request.Url.AbsoluteUri })"
