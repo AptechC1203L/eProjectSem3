@@ -12,7 +12,15 @@ namespace DoctorForums.Controllers
 {
     public class UserController : Controller
     {
+        public static int LoggedInCount { get; set; }
+
         private MainDataClassDataContext dbContext;
+
+        public static int GetUserCount()
+        {
+            var db = new DAO.MainDataClassDataContext();
+            return db.users.Count();
+        }
 
         public UserController()
         {
@@ -75,6 +83,7 @@ namespace DoctorForums.Controllers
                     FormsAuthentication.SetAuthCookie(user.UserName, user.RememberMe);
                     var sessionUser = from u in dbContext.users where u.email == user.UserName select u;
                     Session["User"] = sessionUser.SingleOrDefault();
+                    LoggedInCount++;
 
                     if (next != null)
                         return Redirect(next);
@@ -109,7 +118,8 @@ namespace DoctorForums.Controllers
                 ViewBag.Message = "Welcome! you can post question now";
 
                 Session["User"] = newUser;
-               
+                LoggedInCount++;
+
                 return View("~/Views/Rooms/Index.cshtml", db.rooms);
             }
 
@@ -120,6 +130,7 @@ namespace DoctorForums.Controllers
         {
             FormsAuthentication.SignOut();
             System.Web.HttpContext.Current.Session.Remove("User");
+            LoggedInCount--;
 
             if (next != null)
                 return Redirect(next);

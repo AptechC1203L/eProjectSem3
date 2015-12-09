@@ -31,7 +31,7 @@
             </a>
 
             <div class="uk-navbar-content uk-text-muted uk-text-small">
-                {{g.login_count}} / {{g.total_users}} doctors online
+                @DoctorForums.Controllers.UserController.LoggedInCount / @DoctorForums.Controllers.UserController.GetUserCount() doctors online
             </div>
 
             @if (_user != null)
