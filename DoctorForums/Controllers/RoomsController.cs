@@ -13,7 +13,7 @@ namespace DoctorForums.Controllers
         private MainDataClassDataContext db;
         public RoomsController()
         {
-            this.db = new MainDataClassDataContext();
+            this.db = new MainDataClassDataContext();          
         }
         // GET: Rooms
         public ActionResult Index()

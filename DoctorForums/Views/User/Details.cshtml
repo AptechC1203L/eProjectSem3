@@ -7,7 +7,8 @@
 <div class="user-profile">
     <div class="uk-block uk-block-muted">
         <div class="uk-container">
-            <img src="http://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar" alt="avatar" class="uk-border-rounded">
+            @Html.GravatarImage(Model.email, 150)
+            <h3>@Model.full_name</h3>
             @if (sessionUser != null && sessionUser.id == Model.id)
             {
                 <div>
@@ -90,12 +91,14 @@
         }
     </div>
     <ul class="uk-list uk-list-space">
+        <h3>Posted thread</h3>
         @foreach (var msg in Model.message_tables)
         {
             <li>
                 <article class="uk-comment">
                     <header class="uk-comment-header">
-                        <img class="uk-comment-avatar" src="http://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar" alt="avatar">
+                        @Html.GravatarImage(Model.email, 30)
+                        @Model.full_name                      
                         <h4 class="uk-comment-title">
                             <a href="@Url.Action("Details", "Topic", new { id = msg.thread_id })#reply-@msg.id"
                                class="uk-link-muted">
