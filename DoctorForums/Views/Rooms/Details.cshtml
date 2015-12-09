@@ -18,7 +18,7 @@
     <p>Moderators: 
         @foreach(var mod in Model.moderations.Select(m => m.user))
         {
-            <a>@mod.full_name</a>
+            <a href="@Url.Action("Details", "User", new { id = mod.id })">@mod.full_name</a>
         }
     </p>
 
