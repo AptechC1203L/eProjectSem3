@@ -113,11 +113,11 @@
             </div>
 
             <div class="content uk-width-large-4-5">
-                @if (ViewBag.Message != null)
+                @if (TempData["message"] != null)
                 {
                     <div class="uk-alert" data-uk-alert>
                         <a href="" class="uk-alert-close uk-close"></a>
-                        <p>@ViewBag.Message</p>
+                        <p>@TempData["message"]</p>
                     </div>
                 }
                 @RenderBody()

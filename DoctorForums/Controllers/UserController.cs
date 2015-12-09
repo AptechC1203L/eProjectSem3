@@ -115,12 +115,11 @@ namespace DoctorForums.Controllers
                 
                 db.SubmitChanges();
 
-                ViewBag.Message = "Welcome! you can post question now";
-
+                TempData["message"] = "Welcome! you can post question now";
                 Session["User"] = newUser;
                 LoggedInCount++;
 
-                return View("~/Views/Rooms/Index.cshtml", db.rooms);
+                return RedirectToAction("Index", "Rooms");
             }
 
             return View(user);
