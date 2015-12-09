@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using DoctorForums.DAO;
 using DoctorForums.Helpers;
+using System.ComponentModel.DataAnnotations;
 
 namespace DoctorForums.Controllers
 {
@@ -148,6 +149,28 @@ namespace DoctorForums.Controllers
             this.dbContext.SubmitChanges();
 
             return RedirectToAction("Details", new { id = user.id });
+        }
+
+        public class UserSearchViewModel
+        {
+            [Display(Name = "Find doctors with name containing...")]
+            public string Name { get; set; }
+
+            public IEnumerable<DAO.user> SearchResults;
+        }
+
+        [HttpGet]
+        public ActionResult Search()
+        {
+            return View(new UserSearchViewModel { SearchResults = new List<user>()});
+        }
+
+        [HttpPost]
+        public ActionResult Search(UserSearchViewModel searchData)
+        {
+            searchData.SearchResults = dbContext.users
+                .Where(user => searchData.Name != null && user.full_name.Contains(searchData.Name));
+            return View(searchData);
         }
 	}
 }

@@ -96,7 +96,7 @@
                         </li>
 
                         <li class="{% if g.nav.in_user_search_section %}uk-active{% endif %}">
-                            <a href="{{url_for('user_search')}}"><i class="uk-icon-search"></i> Find Doctors</a>
+                            <a href="@Url.Action("Search", "User")"><i class="uk-icon-search"></i> Find Doctors</a>
                         </li>
 
                         @if (Session["User"] != null)

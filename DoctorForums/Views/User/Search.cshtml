@@ -1,0 +1,32 @@
+﻿@model DoctorForums.Controllers.UserController.UserSearchViewModel
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+
+@using (Html.BeginForm("Search", "User", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true)
+
+    @Html.LabelFor(model => model.Name, new { @class = "uk-form-label" })
+    <div class="uk-form-row">
+        @Html.EditorFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <div class="uk-form-row">
+        <input type="submit" value="Search" class="uk-button uk-button-primary" />
+    </div>
+}
+
+
+<ul>
+    @foreach (var user in Model.SearchResults)
+    {
+    <li><a href="@Url.Action("Details", "User", new { id = user.id })">@user.full_name</a>
+    </li>
+    }
+</ul>
