@@ -19,7 +19,21 @@
                 <span class="uk-badge">@room.message_threads.Count() topics</span>
             </h3>
 
-            <p class="uk-text-muted">@room.description</p>
+            <p class="uk-text-muted">
+                @{
+                    if (room.description.Length > 300)
+                    {
+                        <p>
+                            @room.description.Substring(0,300) 
+                            <a href="@Url.Action("Details", "Rooms", new { id = room.id })" class="uk-link-muted">more...</a>
+                        </p>
+                    }
+                    else
+                    {
+                        <p>@room.description</p>
+                    }
+                }
+            </p>
         </div>
     }
 </div>
