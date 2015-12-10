@@ -28,6 +28,7 @@
       <Association Name="user_message_thread" Member="message_threads" ThisKey="id" OtherKey="creator_id" Type="message_thread" />
       <Association Name="user_message_table" Member="message_tables" ThisKey="id" OtherKey="creator_id" Type="message_table" />
       <Association Name="user_moderation" Member="moderations" ThisKey="id" OtherKey="user_id" Type="moderation" />
+      <Association Name="user_user_interact" Member="user_interacts" ThisKey="id" OtherKey="user_id" Type="user_interact" />
     </Type>
   </Table>
   <Table Name="dbo.notifications" Member="notifications">
@@ -72,6 +73,16 @@
       <Column Name="room_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="room_moderation" Member="room" ThisKey="room_id" OtherKey="id" Type="room" IsForeignKey="true" />
       <Association Name="user_moderation" Member="user" ThisKey="user_id" OtherKey="id" Type="user" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.user_interact" Member="user_interacts">
+    <Type Name="user_interact">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="user_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="content" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="target_table" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="target_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="user_user_interact" Member="user" ThisKey="user_id" OtherKey="id" Type="user" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

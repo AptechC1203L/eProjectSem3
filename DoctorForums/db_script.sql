@@ -63,6 +63,14 @@ create table notifications (
 	is_read bit default 0
 )
 
+create table user_interact(
+	id integer identity primary key,
+	user_id integer references users(id),
+	content ntext,
+	target_table varchar(20),
+	target_id integer
+)
+
 alter table message_threads add constraint msg_thread_room foreign key (room_id) references rooms(id)
 alter table message_threads add constraint msg_thread_user foreign key (creator_id) references users(id)
 alter table message_table add constraint msg_table_thread foreign key (thread_id) references message_threads(id)

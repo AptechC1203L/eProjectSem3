@@ -26,6 +26,29 @@ namespace DoctorForums.Controllers
         public ActionResult Details(int id)
         {
             var topic = this.db.message_threads.SingleOrDefault(t => t.id == id);
+
+            var loggedInUser = Session["User"] as DAO.user;
+
+            if (loggedInUser != null)
+            {
+                var record = (from likeRecord in db.user_interacts
+                              where (likeRecord.user_id == loggedInUser.id)
+                              && (likeRecord.target_id == topic.id)
+                              && (likeRecord.target_table == "message_thread")
+                              select likeRecord).SingleOrDefault();
+                if (record != null)
+                {
+                    ViewBag.Interaction = "Like";
+                }
+                else
+                {
+                    ViewBag.Interaction = "Unlike";
+                }
+            }
+            else
+            {
+                ViewBag.Interaction = "Nothing";
+            }           
             return View(topic);
         }
 
@@ -156,6 +179,37 @@ namespace DoctorForums.Controllers
             catch
             {
                 return View();
+            }
+        }
+        
+        public ActionResult Like(FormCollection collection)
+        {
+            var loggedInUser = Session["User"] as DAO.user;
+            int target_id = int.Parse(collection["topic_id"]);
+            var record = (from likeRecord in db.user_interacts
+                          where (likeRecord.user_id == loggedInUser.id)
+                          && (likeRecord.target_id == target_id)
+                          && (likeRecord.target_table == "message_thread")
+                          select likeRecord).SingleOrDefault();
+            if (record == null)
+            {
+                var newLikeRecord = new DAO.user_interact();
+                newLikeRecord.user_id = loggedInUser.id;
+                newLikeRecord.target_table = "message_thread";
+                newLikeRecord.target_id = target_id;
+                newLikeRecord.content = "like";
+                db.user_interacts.InsertOnSubmit(newLikeRecord);
+
+                db.SubmitChanges();
+
+                return this.Content("");
+            }
+            else
+            {
+                db.user_interacts.DeleteOnSubmit(record);
+                db.SubmitChanges();
+
+                return this.Content("");
             }
         }
     }
