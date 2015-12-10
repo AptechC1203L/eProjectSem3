@@ -64,13 +64,28 @@ namespace DoctorForums.Controllers
         [HttpGet]
         public ActionResult Login()
         {
-            return View();
+            var loggedInUser = Session["User"] as DAO.user;
+            if(loggedInUser != null)
+            {
+                return RedirectToAction("Index", "Rooms");
+            }else
+            {
+                return View();
+            }
         }
 
         [HttpGet]
         public ActionResult Register()
         {
-            return View();
+            var loggedInUser = Session["User"] as DAO.user;
+            if (loggedInUser != null)
+            {
+                return RedirectToAction("Index", "Rooms");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         [HttpPost]
