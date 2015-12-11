@@ -19,14 +19,10 @@
         <input type="hidden" name="topic_id" value="@Model.id">
         <input type="hidden" name="target" value="message_thread" />
 
-        <button type="submit"
-                value="like"
-                class="uk-button uk-button-primary"
-                @{ if (_User == null) { <text> disabled </text>   }}>
-            <div id="interactionStatus">
-                @ViewBag.Interaction
-            </div>
-        </button> 
+    <button type="submit"
+            value="like"
+            class="uk-button uk-button-primary uk-icon-large @{if (ViewBag.Interaction == "Like") {<text>uk-icon-thumbs-o-up</text> } else {<text>uk-icon-thumbs-o-down</text> }}"
+            @{ if (_User == null) { <text> disabled </text>    }}></button>
     }
     <a href="@Url.Action("Details", "Rooms", new { id = Model.room_id })">Back to room</a>
 

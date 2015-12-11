@@ -202,14 +202,14 @@ namespace DoctorForums.Controllers
 
                 db.SubmitChanges();
 
-                return this.Content("");
+                return RedirectToAction("Details", new { id = target_id});
             }
             else
             {
                 db.user_interacts.DeleteOnSubmit(record);
                 db.SubmitChanges();
 
-                return this.Content("");
+                return RedirectToAction("Details", new { id = target_id });
             }
         }
     }
