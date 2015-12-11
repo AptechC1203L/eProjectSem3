@@ -10,10 +10,10 @@ begin transaction
 create table users(
 	id integer identity primary key,
 	full_name ntext,
-	email nvarchar(50),
+	email varchar(50),
 	user_address ntext,
 	tel varchar(20),
-	hash_password ntext,
+	hash_password varchar(256),
 	role_name varchar(10),
 	speciality ntext,
 	offical_location ntext,
