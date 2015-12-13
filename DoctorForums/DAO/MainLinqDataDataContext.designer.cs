@@ -33,9 +33,6 @@ namespace DoctorForums.DAO
     partial void Insertroom(room instance);
     partial void Updateroom(room instance);
     partial void Deleteroom(room instance);
-    partial void Insertuser(user instance);
-    partial void Updateuser(user instance);
-    partial void Deleteuser(user instance);
     partial void Insertnotification(notification instance);
     partial void Updatenotification(notification instance);
     partial void Deletenotification(notification instance);
@@ -51,6 +48,9 @@ namespace DoctorForums.DAO
     partial void Insertuser_interact(user_interact instance);
     partial void Updateuser_interact(user_interact instance);
     partial void Deleteuser_interact(user_interact instance);
+    partial void Insertuser(user instance);
+    partial void Updateuser(user instance);
+    partial void Deleteuser(user instance);
     #endregion
 		
 		public MainDataClassDataContext() : 
@@ -91,14 +91,6 @@ namespace DoctorForums.DAO
 			}
 		}
 		
-		public System.Data.Linq.Table<user> users
-		{
-			get
-			{
-				return this.GetTable<user>();
-			}
-		}
-		
 		public System.Data.Linq.Table<notification> notifications
 		{
 			get
@@ -136,6 +128,14 @@ namespace DoctorForums.DAO
 			get
 			{
 				return this.GetTable<user_interact>();
+			}
+		}
+		
+		public System.Data.Linq.Table<user> users
+		{
+			get
+			{
+				return this.GetTable<user>();
 			}
 		}
 	}
@@ -327,472 +327,6 @@ namespace DoctorForums.DAO
 		{
 			this.SendPropertyChanging();
 			entity.room = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.users")]
-	public partial class user : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _full_name;
-		
-		private string _email;
-		
-		private string _user_address;
-		
-		private string _tel;
-		
-		private string _hash_password;
-		
-		private string _role_name;
-		
-		private string _speciality;
-		
-		private string _offical_location;
-		
-		private string _education;
-		
-		private string _hospital;
-		
-		private System.Nullable<bool> _is_private;
-		
-		private EntitySet<notification> _notifications;
-		
-		private EntitySet<message_thread> _message_threads;
-		
-		private EntitySet<message_table> _message_tables;
-		
-		private EntitySet<moderation> _moderations;
-		
-		private EntitySet<user_interact> _user_interacts;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void Onfull_nameChanging(string value);
-    partial void Onfull_nameChanged();
-    partial void OnemailChanging(string value);
-    partial void OnemailChanged();
-    partial void Onuser_addressChanging(string value);
-    partial void Onuser_addressChanged();
-    partial void OntelChanging(string value);
-    partial void OntelChanged();
-    partial void Onhash_passwordChanging(string value);
-    partial void Onhash_passwordChanged();
-    partial void Onrole_nameChanging(string value);
-    partial void Onrole_nameChanged();
-    partial void OnspecialityChanging(string value);
-    partial void OnspecialityChanged();
-    partial void Onoffical_locationChanging(string value);
-    partial void Onoffical_locationChanged();
-    partial void OneducationChanging(string value);
-    partial void OneducationChanged();
-    partial void OnhospitalChanging(string value);
-    partial void OnhospitalChanged();
-    partial void Onis_privateChanging(System.Nullable<bool> value);
-    partial void Onis_privateChanged();
-    #endregion
-		
-		public user()
-		{
-			this._notifications = new EntitySet<notification>(new Action<notification>(this.attach_notifications), new Action<notification>(this.detach_notifications));
-			this._message_threads = new EntitySet<message_thread>(new Action<message_thread>(this.attach_message_threads), new Action<message_thread>(this.detach_message_threads));
-			this._message_tables = new EntitySet<message_table>(new Action<message_table>(this.attach_message_tables), new Action<message_table>(this.detach_message_tables));
-			this._moderations = new EntitySet<moderation>(new Action<moderation>(this.attach_moderations), new Action<moderation>(this.detach_moderations));
-			this._user_interacts = new EntitySet<user_interact>(new Action<user_interact>(this.attach_user_interacts), new Action<user_interact>(this.detach_user_interacts));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_full_name", DbType="Text", UpdateCheck=UpdateCheck.Never)]
-		public string full_name
-		{
-			get
-			{
-				return this._full_name;
-			}
-			set
-			{
-				if ((this._full_name != value))
-				{
-					this.Onfull_nameChanging(value);
-					this.SendPropertyChanging();
-					this._full_name = value;
-					this.SendPropertyChanged("full_name");
-					this.Onfull_nameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="NVarChar(50)")]
-		public string email
-		{
-			get
-			{
-				return this._email;
-			}
-			set
-			{
-				if ((this._email != value))
-				{
-					this.OnemailChanging(value);
-					this.SendPropertyChanging();
-					this._email = value;
-					this.SendPropertyChanged("email");
-					this.OnemailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_address", DbType="Text", UpdateCheck=UpdateCheck.Never)]
-		public string user_address
-		{
-			get
-			{
-				return this._user_address;
-			}
-			set
-			{
-				if ((this._user_address != value))
-				{
-					this.Onuser_addressChanging(value);
-					this.SendPropertyChanging();
-					this._user_address = value;
-					this.SendPropertyChanged("user_address");
-					this.Onuser_addressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tel", DbType="VarChar(20)")]
-		public string tel
-		{
-			get
-			{
-				return this._tel;
-			}
-			set
-			{
-				if ((this._tel != value))
-				{
-					this.OntelChanging(value);
-					this.SendPropertyChanging();
-					this._tel = value;
-					this.SendPropertyChanged("tel");
-					this.OntelChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hash_password", DbType="Text", UpdateCheck=UpdateCheck.Never)]
-		public string hash_password
-		{
-			get
-			{
-				return this._hash_password;
-			}
-			set
-			{
-				if ((this._hash_password != value))
-				{
-					this.Onhash_passwordChanging(value);
-					this.SendPropertyChanging();
-					this._hash_password = value;
-					this.SendPropertyChanged("hash_password");
-					this.Onhash_passwordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_role_name", DbType="VarChar(10)")]
-		public string role_name
-		{
-			get
-			{
-				return this._role_name;
-			}
-			set
-			{
-				if ((this._role_name != value))
-				{
-					this.Onrole_nameChanging(value);
-					this.SendPropertyChanging();
-					this._role_name = value;
-					this.SendPropertyChanged("role_name");
-					this.Onrole_nameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_speciality", DbType="Text", UpdateCheck=UpdateCheck.Never)]
-		public string speciality
-		{
-			get
-			{
-				return this._speciality;
-			}
-			set
-			{
-				if ((this._speciality != value))
-				{
-					this.OnspecialityChanging(value);
-					this.SendPropertyChanging();
-					this._speciality = value;
-					this.SendPropertyChanged("speciality");
-					this.OnspecialityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_offical_location", DbType="Text", UpdateCheck=UpdateCheck.Never)]
-		public string offical_location
-		{
-			get
-			{
-				return this._offical_location;
-			}
-			set
-			{
-				if ((this._offical_location != value))
-				{
-					this.Onoffical_locationChanging(value);
-					this.SendPropertyChanging();
-					this._offical_location = value;
-					this.SendPropertyChanged("offical_location");
-					this.Onoffical_locationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_education", DbType="Text", UpdateCheck=UpdateCheck.Never)]
-		public string education
-		{
-			get
-			{
-				return this._education;
-			}
-			set
-			{
-				if ((this._education != value))
-				{
-					this.OneducationChanging(value);
-					this.SendPropertyChanging();
-					this._education = value;
-					this.SendPropertyChanged("education");
-					this.OneducationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hospital", DbType="Text", UpdateCheck=UpdateCheck.Never)]
-		public string hospital
-		{
-			get
-			{
-				return this._hospital;
-			}
-			set
-			{
-				if ((this._hospital != value))
-				{
-					this.OnhospitalChanging(value);
-					this.SendPropertyChanging();
-					this._hospital = value;
-					this.SendPropertyChanged("hospital");
-					this.OnhospitalChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_private", DbType="Bit")]
-		public System.Nullable<bool> is_private
-		{
-			get
-			{
-				return this._is_private;
-			}
-			set
-			{
-				if ((this._is_private != value))
-				{
-					this.Onis_privateChanging(value);
-					this.SendPropertyChanging();
-					this._is_private = value;
-					this.SendPropertyChanged("is_private");
-					this.Onis_privateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_notification", Storage="_notifications", ThisKey="id", OtherKey="user_id")]
-		public EntitySet<notification> notifications
-		{
-			get
-			{
-				return this._notifications;
-			}
-			set
-			{
-				this._notifications.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_message_thread", Storage="_message_threads", ThisKey="id", OtherKey="creator_id")]
-		public EntitySet<message_thread> message_threads
-		{
-			get
-			{
-				return this._message_threads;
-			}
-			set
-			{
-				this._message_threads.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_message_table", Storage="_message_tables", ThisKey="id", OtherKey="creator_id")]
-		public EntitySet<message_table> message_tables
-		{
-			get
-			{
-				return this._message_tables;
-			}
-			set
-			{
-				this._message_tables.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_moderation", Storage="_moderations", ThisKey="id", OtherKey="user_id")]
-		public EntitySet<moderation> moderations
-		{
-			get
-			{
-				return this._moderations;
-			}
-			set
-			{
-				this._moderations.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_user_interact", Storage="_user_interacts", ThisKey="id", OtherKey="user_id")]
-		public EntitySet<user_interact> user_interacts
-		{
-			get
-			{
-				return this._user_interacts;
-			}
-			set
-			{
-				this._user_interacts.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_notifications(notification entity)
-		{
-			this.SendPropertyChanging();
-			entity.user = this;
-		}
-		
-		private void detach_notifications(notification entity)
-		{
-			this.SendPropertyChanging();
-			entity.user = null;
-		}
-		
-		private void attach_message_threads(message_thread entity)
-		{
-			this.SendPropertyChanging();
-			entity.user = this;
-		}
-		
-		private void detach_message_threads(message_thread entity)
-		{
-			this.SendPropertyChanging();
-			entity.user = null;
-		}
-		
-		private void attach_message_tables(message_table entity)
-		{
-			this.SendPropertyChanging();
-			entity.user = this;
-		}
-		
-		private void detach_message_tables(message_table entity)
-		{
-			this.SendPropertyChanging();
-			entity.user = null;
-		}
-		
-		private void attach_moderations(moderation entity)
-		{
-			this.SendPropertyChanging();
-			entity.user = this;
-		}
-		
-		private void detach_moderations(moderation entity)
-		{
-			this.SendPropertyChanging();
-			entity.user = null;
-		}
-		
-		private void attach_user_interacts(user_interact entity)
-		{
-			this.SendPropertyChanging();
-			entity.user = this;
-		}
-		
-		private void detach_user_interacts(user_interact entity)
-		{
-			this.SendPropertyChanging();
-			entity.user = null;
 		}
 	}
 	
@@ -1939,6 +1473,496 @@ namespace DoctorForums.DAO
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.users")]
+	public partial class user : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _full_name;
+		
+		private string _email;
+		
+		private string _user_address;
+		
+		private string _tel;
+		
+		private string _hash_password;
+		
+		private string _role_name;
+		
+		private string _speciality;
+		
+		private string _offical_location;
+		
+		private string _education;
+		
+		private string _hospital;
+		
+		private System.Nullable<bool> _is_private;
+		
+		private System.Nullable<bool> _is_deleted;
+		
+		private EntitySet<notification> _notifications;
+		
+		private EntitySet<message_thread> _message_threads;
+		
+		private EntitySet<message_table> _message_tables;
+		
+		private EntitySet<moderation> _moderations;
+		
+		private EntitySet<user_interact> _user_interacts;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Onfull_nameChanging(string value);
+    partial void Onfull_nameChanged();
+    partial void OnemailChanging(string value);
+    partial void OnemailChanged();
+    partial void Onuser_addressChanging(string value);
+    partial void Onuser_addressChanged();
+    partial void OntelChanging(string value);
+    partial void OntelChanged();
+    partial void Onhash_passwordChanging(string value);
+    partial void Onhash_passwordChanged();
+    partial void Onrole_nameChanging(string value);
+    partial void Onrole_nameChanged();
+    partial void OnspecialityChanging(string value);
+    partial void OnspecialityChanged();
+    partial void Onoffical_locationChanging(string value);
+    partial void Onoffical_locationChanged();
+    partial void OneducationChanging(string value);
+    partial void OneducationChanged();
+    partial void OnhospitalChanging(string value);
+    partial void OnhospitalChanged();
+    partial void Onis_privateChanging(System.Nullable<bool> value);
+    partial void Onis_privateChanged();
+    partial void Onis_deletedChanging(System.Nullable<bool> value);
+    partial void Onis_deletedChanged();
+    #endregion
+		
+		public user()
+		{
+			this._notifications = new EntitySet<notification>(new Action<notification>(this.attach_notifications), new Action<notification>(this.detach_notifications));
+			this._message_threads = new EntitySet<message_thread>(new Action<message_thread>(this.attach_message_threads), new Action<message_thread>(this.detach_message_threads));
+			this._message_tables = new EntitySet<message_table>(new Action<message_table>(this.attach_message_tables), new Action<message_table>(this.detach_message_tables));
+			this._moderations = new EntitySet<moderation>(new Action<moderation>(this.attach_moderations), new Action<moderation>(this.detach_moderations));
+			this._user_interacts = new EntitySet<user_interact>(new Action<user_interact>(this.attach_user_interacts), new Action<user_interact>(this.detach_user_interacts));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_full_name", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+		public string full_name
+		{
+			get
+			{
+				return this._full_name;
+			}
+			set
+			{
+				if ((this._full_name != value))
+				{
+					this.Onfull_nameChanging(value);
+					this.SendPropertyChanging();
+					this._full_name = value;
+					this.SendPropertyChanged("full_name");
+					this.Onfull_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(50)")]
+		public string email
+		{
+			get
+			{
+				return this._email;
+			}
+			set
+			{
+				if ((this._email != value))
+				{
+					this.OnemailChanging(value);
+					this.SendPropertyChanging();
+					this._email = value;
+					this.SendPropertyChanged("email");
+					this.OnemailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_address", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+		public string user_address
+		{
+			get
+			{
+				return this._user_address;
+			}
+			set
+			{
+				if ((this._user_address != value))
+				{
+					this.Onuser_addressChanging(value);
+					this.SendPropertyChanging();
+					this._user_address = value;
+					this.SendPropertyChanged("user_address");
+					this.Onuser_addressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tel", DbType="VarChar(20)")]
+		public string tel
+		{
+			get
+			{
+				return this._tel;
+			}
+			set
+			{
+				if ((this._tel != value))
+				{
+					this.OntelChanging(value);
+					this.SendPropertyChanging();
+					this._tel = value;
+					this.SendPropertyChanged("tel");
+					this.OntelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hash_password", DbType="VarChar(256)")]
+		public string hash_password
+		{
+			get
+			{
+				return this._hash_password;
+			}
+			set
+			{
+				if ((this._hash_password != value))
+				{
+					this.Onhash_passwordChanging(value);
+					this.SendPropertyChanging();
+					this._hash_password = value;
+					this.SendPropertyChanged("hash_password");
+					this.Onhash_passwordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_role_name", DbType="VarChar(10)")]
+		public string role_name
+		{
+			get
+			{
+				return this._role_name;
+			}
+			set
+			{
+				if ((this._role_name != value))
+				{
+					this.Onrole_nameChanging(value);
+					this.SendPropertyChanging();
+					this._role_name = value;
+					this.SendPropertyChanged("role_name");
+					this.Onrole_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_speciality", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+		public string speciality
+		{
+			get
+			{
+				return this._speciality;
+			}
+			set
+			{
+				if ((this._speciality != value))
+				{
+					this.OnspecialityChanging(value);
+					this.SendPropertyChanging();
+					this._speciality = value;
+					this.SendPropertyChanged("speciality");
+					this.OnspecialityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_offical_location", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+		public string offical_location
+		{
+			get
+			{
+				return this._offical_location;
+			}
+			set
+			{
+				if ((this._offical_location != value))
+				{
+					this.Onoffical_locationChanging(value);
+					this.SendPropertyChanging();
+					this._offical_location = value;
+					this.SendPropertyChanged("offical_location");
+					this.Onoffical_locationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_education", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+		public string education
+		{
+			get
+			{
+				return this._education;
+			}
+			set
+			{
+				if ((this._education != value))
+				{
+					this.OneducationChanging(value);
+					this.SendPropertyChanging();
+					this._education = value;
+					this.SendPropertyChanged("education");
+					this.OneducationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hospital", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+		public string hospital
+		{
+			get
+			{
+				return this._hospital;
+			}
+			set
+			{
+				if ((this._hospital != value))
+				{
+					this.OnhospitalChanging(value);
+					this.SendPropertyChanging();
+					this._hospital = value;
+					this.SendPropertyChanged("hospital");
+					this.OnhospitalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_private", DbType="Bit")]
+		public System.Nullable<bool> is_private
+		{
+			get
+			{
+				return this._is_private;
+			}
+			set
+			{
+				if ((this._is_private != value))
+				{
+					this.Onis_privateChanging(value);
+					this.SendPropertyChanging();
+					this._is_private = value;
+					this.SendPropertyChanged("is_private");
+					this.Onis_privateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_deleted", DbType="Bit")]
+		public System.Nullable<bool> is_deleted
+		{
+			get
+			{
+				return this._is_deleted;
+			}
+			set
+			{
+				if ((this._is_deleted != value))
+				{
+					this.Onis_deletedChanging(value);
+					this.SendPropertyChanging();
+					this._is_deleted = value;
+					this.SendPropertyChanged("is_deleted");
+					this.Onis_deletedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_notification", Storage="_notifications", ThisKey="id", OtherKey="user_id")]
+		public EntitySet<notification> notifications
+		{
+			get
+			{
+				return this._notifications;
+			}
+			set
+			{
+				this._notifications.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_message_thread", Storage="_message_threads", ThisKey="id", OtherKey="creator_id")]
+		public EntitySet<message_thread> message_threads
+		{
+			get
+			{
+				return this._message_threads;
+			}
+			set
+			{
+				this._message_threads.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_message_table", Storage="_message_tables", ThisKey="id", OtherKey="creator_id")]
+		public EntitySet<message_table> message_tables
+		{
+			get
+			{
+				return this._message_tables;
+			}
+			set
+			{
+				this._message_tables.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_moderation", Storage="_moderations", ThisKey="id", OtherKey="user_id")]
+		public EntitySet<moderation> moderations
+		{
+			get
+			{
+				return this._moderations;
+			}
+			set
+			{
+				this._moderations.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="user_user_interact", Storage="_user_interacts", ThisKey="id", OtherKey="user_id")]
+		public EntitySet<user_interact> user_interacts
+		{
+			get
+			{
+				return this._user_interacts;
+			}
+			set
+			{
+				this._user_interacts.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_notifications(notification entity)
+		{
+			this.SendPropertyChanging();
+			entity.user = this;
+		}
+		
+		private void detach_notifications(notification entity)
+		{
+			this.SendPropertyChanging();
+			entity.user = null;
+		}
+		
+		private void attach_message_threads(message_thread entity)
+		{
+			this.SendPropertyChanging();
+			entity.user = this;
+		}
+		
+		private void detach_message_threads(message_thread entity)
+		{
+			this.SendPropertyChanging();
+			entity.user = null;
+		}
+		
+		private void attach_message_tables(message_table entity)
+		{
+			this.SendPropertyChanging();
+			entity.user = this;
+		}
+		
+		private void detach_message_tables(message_table entity)
+		{
+			this.SendPropertyChanging();
+			entity.user = null;
+		}
+		
+		private void attach_moderations(moderation entity)
+		{
+			this.SendPropertyChanging();
+			entity.user = this;
+		}
+		
+		private void detach_moderations(moderation entity)
+		{
+			this.SendPropertyChanging();
+			entity.user = null;
+		}
+		
+		private void attach_user_interacts(user_interact entity)
+		{
+			this.SendPropertyChanging();
+			entity.user = this;
+		}
+		
+		private void detach_user_interacts(user_interact entity)
+		{
+			this.SendPropertyChanging();
+			entity.user = null;
 		}
 	}
 }

@@ -133,6 +133,9 @@
     <Compile Include="Controllers\RoomsController.cs" />
     <Compile Include="Controllers\TopicController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="DAO\MainLinqDataDataContext.cs">
+      <DependentUpon>MainLinqDataDataContext.dbml</DependentUpon>
+    </Compile>
     <Compile Include="DAO\MainLinqDataDataContext.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

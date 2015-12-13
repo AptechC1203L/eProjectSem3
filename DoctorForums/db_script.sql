@@ -19,7 +19,8 @@ create table users(
 	offical_location ntext,
 	education ntext,
 	hospital ntext,
-	is_private bit
+	is_private bit,
+	is_deleted bit
 )
 
 create table message_threads(

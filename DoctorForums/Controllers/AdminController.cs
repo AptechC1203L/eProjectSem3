@@ -31,7 +31,10 @@ namespace DoctorForums.Controllers
             }
             else
             {
-                return View();
+                var listUser = from u in dbContext.users
+                               where u.role_name != "admin"
+                               select u;                
+                return View(listUser);
             }
         }
 
@@ -92,6 +95,39 @@ namespace DoctorForums.Controllers
                     return RedirectToAction("CreateUser", "Admin");
                 }
             }                        
+        }
+
+        [HttpPost]
+        public ActionResult DeleteUser(int userId)
+        {
+            var loggedInUser = Session["User"] as DAO.user;
+
+            if (loggedInUser == null || loggedInUser.role_name != "admin")
+            {
+                ViewBag.errorCode = "Not permited";
+                ViewBag.errorMessage = "Contact to admin";
+                Response.StatusCode = 404;
+                return View("~/Views/ErrorPages/Index.cshtml");
+            }
+            else
+            {
+                var user = (from u in dbContext.users
+                            where u.id == userId
+                            select u).SingleOrDefault();
+                if (user != null)
+                {
+                    if (user.is_deleted == true)
+                    {
+                        user.is_deleted = false;
+                    }
+                    else
+                    {
+                        user.is_deleted = true;
+                    }
+                }
+                dbContext.SubmitChanges();
+                return RedirectToAction("Index", "Admin");
+            }
         }
 	}
 }
