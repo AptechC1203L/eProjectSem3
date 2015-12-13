@@ -10,7 +10,20 @@
 
 <div class="topic">
     <h1>@Model.title</h1>
+    @using (Ajax.BeginForm("Like", "Topic", new AjaxOptions
+    {        
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "interactionStatus"
+    }))
+    {
+        <input type="hidden" name="topic_id" value="@Model.id">
+        <input type="hidden" name="target" value="message_thread" />
 
+    <button type="submit"
+            value="like"
+            class="uk-button uk-button-primary uk-icon-large @{if (ViewBag.Interaction == "Like") {<text>uk-icon-thumbs-o-up</text> } else {<text>uk-icon-thumbs-o-down</text> }}"
+            @{ if (_User == null) { <text> disabled </text>    }}></button>
+    }
     <a href="@Url.Action("Details", "Rooms", new { id = Model.room_id })">Back to room</a>
 
     <ul class="uk-comment-list">
@@ -52,27 +65,22 @@
 
             <div class="uk-form-row">
                 <textarea name="content" cols="30" rows="10"
-                @{if (_User == null)
-                    {
-                        <text>disabled placeholder="Please login to post messages."</text>
-                    }
-                    else
-                    {
-                        <text>placeholder="Type your response here..."</text>
-                    } }></textarea>
+                          @{if (_User == null) { <text> disabled placeholder="Please login to post messages." </text>      } else { <text> placeholder="Type your response here..." </text>      } }></textarea>
             </div>
 
             <div class="uk-form-row">
                 <button type="submit"
                         value="Reply"
                         class="uk-button uk-button-primary"
-                        @{ if (_User == null) { <text>disabled</text> } }>
+                        @{ if (_User == null) { <text> disabled </text>      } }>
                     Reply
                 </button>
             </div>
         </fieldset>
     </form>
 </div>
+
+
 
 @section scripts
 {

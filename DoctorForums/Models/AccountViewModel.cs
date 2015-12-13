@@ -34,7 +34,7 @@ namespace DoctorForums.Models
         [StringLength(255, ErrorMessage = "Must be between 5 and 255 characters", MinimumLength = 5)]
         [DataType(DataType.Password)]
         [Compare("Password")]
-        public string ConfirmPassword { get; set; }             
+        public string ConfirmPassword { get; set; }
 
     }
     public class LoginViewModel
@@ -62,17 +62,62 @@ namespace DoctorForums.Models
         public bool IsValid(string _username, string _password)
         {
             MainDataClassDataContext db = new MainDataClassDataContext();
-            var user = from u in db.users where u.email == _username select u.hash_password;
-            String password = user.SingleOrDefault();
-            if (password.CompareTo(SHA1.Encode(_password)) == 0)
-            {
-                return true;
-            }
-            else
+            String _hashPassword = SHA1.Encode(_password);
+            var record = from u in db.users 
+                       where u.email.ToString() == _username
+                       && u.hash_password.ToString() == _hashPassword
+                       select u;
+            var user = record.SingleOrDefault();           
+            
+            if (user == null || user.is_deleted == true)
             {
                 return false;
             }
+            else
+            {
+                return true;
+            }
 
         }
+    }
+    public class DoctorViewModel
+    {
+        [Required]
+        [Display(Name = "Your email")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        public string UserName { get; set; }
+
+        [Required]
+        [Display(Name = "Full name")]
+        public string FullName { get; set; }
+
+        [Required]
+        [StringLength(12, ErrorMessage = "This is not phone number")]
+        [Display(Name = "Telephone")]
+        public string Tel { get; set; }
+
+        [Display(Name = "Address")]
+        public string Address { get; set; }
+
+        [Required(ErrorMessage = "Password is required")]
+        [StringLength(255, ErrorMessage = "Must be between 5 and 255 characters", MinimumLength = 5)]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+
+        [Required(ErrorMessage = "Confirm Password is required")]
+        [StringLength(255, ErrorMessage = "Must be between 5 and 255 characters", MinimumLength = 5)]
+        [DataType(DataType.Password)]
+        [Compare("Password")]
+        public string ConfirmPassword { get; set; }
+        
+        [Display(Name = "Speciality")]
+        public string Speciality { get; set; }
+        [Display(Name = "Offical Location")]
+        public string OfficalLocation { get; set; }
+        [Display(Name = "Education")]
+        public string Education { get; set; }
+        [Display(Name = "Hospital")]
+        public string Hospital { get; set; }
+
     }
 }

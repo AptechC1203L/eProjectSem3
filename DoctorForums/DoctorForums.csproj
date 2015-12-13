@@ -129,9 +129,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\RoomsController.cs" />
     <Compile Include="Controllers\TopicController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="DAO\MainLinqDataDataContext.cs">
+      <DependentUpon>MainLinqDataDataContext.dbml</DependentUpon>
+    </Compile>
     <Compile Include="DAO\MainLinqDataDataContext.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -406,6 +410,9 @@
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\ErrorPages\Index.cshtml" />
     <Content Include="Views\User\Search.cshtml" />
+    <Content Include="Views\Topic\_InteractionView.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\CreateUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

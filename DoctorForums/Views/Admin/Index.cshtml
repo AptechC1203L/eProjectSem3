@@ -1,0 +1,69 @@
+﻿@model IEnumerable<DoctorForums.DAO.user>
+
+@{
+    ViewBag.Title = "Admin index page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>User list</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.full_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user_address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.role_name)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.full_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user_address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.role_name)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", "User", new { id = item.id }, null) |
+                <form action="@Url.Action("DeleteUser", "Admin")"
+                      method="POST">
+                    <input type="hidden" name="userId" value="@item.id" />
+                    <button type="submit">
+                        @{
+                            if (item.is_deleted == true)
+                            {
+                                <text>Deleted</text>
+                            }
+                            else
+                            {
+                                <text>Delete</text>
+                            }
+                        }
+                    </button>
+                </form>
+            </td>
+        </tr>
+    }
+
+</table>
