@@ -31,7 +31,7 @@ namespace DoctorForums.Controllers
             else
             {
                 ViewBag.errorCode = "Resource not found";
-                ViewBag.errorMessage = "Some thing went wrong";
+                ViewBag.errorMessage = "Somethings went wrong";
                 Response.StatusCode = 401;
                 return View("~/Views/ErrorPages/Index.cshtml");
             }
