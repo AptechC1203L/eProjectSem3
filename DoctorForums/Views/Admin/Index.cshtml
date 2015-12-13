@@ -5,11 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>View1</h2>
+<h2>User list</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -48,7 +45,7 @@
                 @Html.DisplayFor(modelItem => item.role_name)
             </td>
             <td>
-                @Html.ActionLink("Details", "User/Detailed", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", "User", new { id = item.id }, null) |
                 <form action="@Url.Action("DeleteUser", "Admin")"
                       method="POST">
                     <input type="hidden" name="userId" value="@item.id" />

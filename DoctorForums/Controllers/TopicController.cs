@@ -38,10 +38,12 @@ namespace DoctorForums.Controllers
                               select likeRecord).SingleOrDefault();
                 if (record != null)
                 {
+                    TempData["message"] = "You like this content!";
                     ViewBag.Interaction = "Like";
                 }
                 else
                 {
+                    TempData["message"] = "You do not like this content!";
                     ViewBag.Interaction = "Unlike";
                 }
             }

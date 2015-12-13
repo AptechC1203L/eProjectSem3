@@ -65,10 +65,11 @@ namespace DoctorForums.Controllers
         public ActionResult Login()
         {
             var loggedInUser = Session["User"] as DAO.user;
-            if(loggedInUser != null)
+            if (loggedInUser != null)
             {
                 return RedirectToAction("Index", "Rooms");
-            }else
+            }
+            else
             {
                 return View();
             }
@@ -100,10 +101,15 @@ namespace DoctorForums.Controllers
                     Session["User"] = sessionUser.SingleOrDefault();
                     LoggedInCount++;
 
+                    if(sessionUser.SingleOrDefault().role_name.CompareTo("admin") == 0)
+                    {
+                        return RedirectToAction("Index", "Admin");
+                    }
                     if (next != null)
+                    {
+                        TempData["message"] = "Welcome! you can post question now";
                         return Redirect(next);
-                    else
-                        return RedirectToAction("Index", "Rooms");
+                    }                    
                 }
                 else
                 {
@@ -127,7 +133,7 @@ namespace DoctorForums.Controllers
 
                 DAO.MainDataClassDataContext db = new DAO.MainDataClassDataContext();
                 db.users.InsertOnSubmit(newUser);
-                
+
                 db.SubmitChanges();
 
                 TempData["message"] = "Welcome! you can post question now";
@@ -187,7 +193,7 @@ namespace DoctorForums.Controllers
         [HttpGet]
         public ActionResult Search()
         {
-            return View(new UserSearchViewModel { SearchResults = new List<user>()});
+            return View(new UserSearchViewModel { SearchResults = new List<user>() });
         }
 
         [HttpPost]
@@ -197,5 +203,5 @@ namespace DoctorForums.Controllers
                 .Where(user => searchData.Name != null && user.full_name.Contains(searchData.Name));
             return View(searchData);
         }
-	}
+    }
 }

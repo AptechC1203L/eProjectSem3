@@ -69,18 +69,17 @@ namespace DoctorForums.Models
                        select u;
             var user = record.SingleOrDefault();           
             
-            if (user != null)
+            if (user == null || user.is_deleted == true)
             {
-                return true;
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
 
         }
     }
-
     public class DoctorViewModel
     {
         [Required]
