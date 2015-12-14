@@ -34,7 +34,7 @@ namespace DoctorForums.Models
         [StringLength(255, ErrorMessage = "Must be between 5 and 255 characters", MinimumLength = 5)]
         [DataType(DataType.Password)]
         [Compare("Password")]
-        public string ConfirmPassword { get; set; }             
+        public string ConfirmPassword { get; set; }
 
     }
     public class LoginViewModel
@@ -62,9 +62,14 @@ namespace DoctorForums.Models
         public bool IsValid(string _username, string _password)
         {
             MainDataClassDataContext db = new MainDataClassDataContext();
-            var user = from u in db.users where u.email == _username select u.hash_password;
-            String password = user.SingleOrDefault();
-            if (password.CompareTo(SHA1.Encode(_password)) == 0)
+            String _hashPassword = SHA1.Encode(_password);
+            var record = from u in db.users
+                         where u.email.ToString() == _username
+                         && u.hash_password.ToString() == _hashPassword
+                         select u;
+            var user = record.SingleOrDefault();
+
+            if (user != null)
             {
                 return true;
             }
