@@ -55,7 +55,7 @@
                 <div class="uk-navbar-content uk-navbar-flip">
                         <a href="@Url.Action("Details", "User", new { id = _user.id })"
                            class="uk-margin-small-right uk-link-muted">                            
-                            @Html.GravatarImage(_user.email, 25)                     
+                            @Html.GravatarImage(_user.email, 25)                   
                             @_user.full_name
                         </a>
                         <form action="@Url.Action("Logout", "User", new { next = Request.Url.AbsoluteUri })"
@@ -113,11 +113,11 @@
             </div>
 
             <div class="content uk-width-large-4-5">
-                @if (ViewBag.Message != null)
+                @if (TempData["message"] != null)
                 {
                     <div class="uk-alert" data-uk-alert>
                         <a href="" class="uk-alert-close uk-close"></a>
-                        <p>@ViewBag.Message</p>
+                        <p>@TempData["message"]</p>
                     </div>
                 }
                 @RenderBody()

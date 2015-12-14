@@ -19,7 +19,7 @@
             <li>
                 <article class="uk-comment" id="reply-@message.id">
                     <header class="uk-comment-header">
-                        <img class="uk-comment-avatar" src="http://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar" alt="">
+                        @Html.GravatarImage(message.user.email, 50)
                         <h4 class="uk-comment-title">
                             <a href="@Url.Action("Details", "User", new { id = message.creator_id })"
                                class="uk-link-muted">

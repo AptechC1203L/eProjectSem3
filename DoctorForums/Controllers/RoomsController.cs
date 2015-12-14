@@ -24,8 +24,17 @@ namespace DoctorForums.Controllers
         // GET: Rooms/Details/5
         public ActionResult Details(int id)
         {
-
-            return View(db.rooms.SingleOrDefault(r => r.id == id));
+            if (db.rooms.SingleOrDefault(r => r.id == id) != null)
+            {
+                return View(db.rooms.SingleOrDefault(r => r.id == id));
+            }
+            else
+            {
+                ViewBag.errorCode = "Resource not found";
+                ViewBag.errorMessage = "Some thing went wrong";
+                Response.StatusCode = 401;
+                return View("~/Views/ErrorPages/Index.cshtml");
+            }
         }
 
         // GET: Rooms/Create

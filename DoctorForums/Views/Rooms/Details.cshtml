@@ -82,7 +82,8 @@
                     <td>
                         <a href="@Url.Action("Details", "User", new { id = thread.creator_id })"
                            class="uk-link-muted">
-                            <img src="http://2.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=132&d=wavatar" alt="avatar" class="uk-border-rounded" style="height: 25px;"> @thread.user.full_name
+                            @Html.GravatarImage(thread.user.email, 25)
+                            @thread.user.full_name
                         </a>
                     </td>
                     <td class="uk-text-muted">@thread.message_tables.Count()</td>
