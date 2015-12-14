@@ -73,24 +73,24 @@ commit transaction
 --Insert data
 
 insert into users (full_name, email, offical_location, tel, hash_password, role_name, is_private) 
-	values ('Admin','admin@mail.com', 'Ha Noi', '093876222', '7c222fb2927d828af22f592134e8932480637c0d', 'admin', 1),
-           ('Doctor No 1','doctorno1@mail.com', 'Da Nang', '093374222', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor', 0),
-           ('Doctor No 2','doctorno2@mail.com', 'Nghe An', '093374222', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor', 0),
-           ('Doctor No 3','doctorno3@mail.com', 'Thai Binh', '093374222', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor', 0),
-           ('Doctor No 4','doctorno4@mail.com', 'TP Ho Chi Minh', '0933742874', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor', 0);
+	values ('Admin','admin@mail.com', N'Hà Nội', '093876222', '7c222fb2927d828af22f592134e8932480637c0d', 'admin', 1),
+           ('Doctor No 1','doctorno1@mail.com', N'Đà Nẵng', '093374222', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor', 0),
+           ('Doctor No 2','doctorno2@mail.com', N'Nghệ An', '093374222', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor', 0),
+           ('Doctor No 3','doctorno3@mail.com', N'Thái Bình', '093374222', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor', 0),
+           ('Doctor No 4','doctorno4@mail.com', N'TP Hồ Chí Minh', '0933742874', '7c222fb2927d828af22f592134e8932480637c0d', 'doctor', 0);
 -- password 12345678 - > sha1
 
 insert into rooms (name, description) values 
-	('Benh tim mach', 'hahahahahahahnt'),
-	('Bệnh lão khoa', 'lololol'),
-	('Khoa hô hấp', 'noice noice noice');
+	(N'Bệnh tim mạch', 'hahahahahahahnt'),
+	(N'Bệnh lão khoa', 'lololol'),
+	(N'Khoa hô hấp', 'noice noice noice');
 
-insert into message_threads values (1, 2, '', 'Các món ăn tốt cho người bệnh tim mạch')
-insert into message_threads values (1, 2, '', 'Dấu hiệu nhận biết sớm bệnh tim mạch')
-insert into message_threads values (1, 2, '', 'Bệnh tim mạch nên kiêng gì')
-insert into message_threads values (2, 3, '', 'Món ăn tốt cho người cao tuổi')
-insert into message_threads values (2, 3, '', 'Nguy cơ tai biến ở người cao tuổi')
-insert into message_threads values (2, 3, '', 'Người cao tuổi và cuộc sống')
+insert into message_threads values (1, 2, '', N'Các món ăn tốt cho người bệnh tim mạch')
+insert into message_threads values (1, 2, '', N'Dấu hiệu nhận biết sớm bệnh tim mạch')
+insert into message_threads values (1, 2, '', N'Bệnh tim mạch nên kiêng gì')
+insert into message_threads values (2, 3, '', N'Món ăn tốt cho người cao tuổi')
+insert into message_threads values (2, 3, '', N'Nguy cơ tai biến ở người cao tuổi')
+insert into message_threads values (2, 3, '', N'Người cao tuổi và cuộc sống')
 
 
 insert into moderations (user_id, room_id) values (1, 1);
